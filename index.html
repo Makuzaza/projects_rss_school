@@ -1,46 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="page" lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Christmas Magic</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Christmas Shop</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <header class="header">
-    <nav>
-      <ul>
-        <li><a href="#">The Gifts</a></li>
-        <li><a href="#">Gifts</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Best</a></li>
-        <li><a href="#">Contacts</a></li>
-      </ul>
-    </nav>
-    <div class="hero">
-      <h1>Gift Yourself the Magic of New Possibilities</h1>
-      <p>Merry Christmas and Happy New Year</p>
-      <a href="#" class="button">Explore Magical Gifts</a>
-    </div>
-  </header>
+<body class="page-body">
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <div><img class="logo-img" src="./images/snowflake.png"></div> 
+                <div>The Gifts</div>
+            </div>
+            <nav class="nav">
+                <a href="#gifts">Gifts</a>
+                <a href="#about">About</a>
+                <a href="#best-gifts">Best</a>
+                <a href="#footer">Contacts</a>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container">
+    <section class="hero">
+        <div class="hero-content">
+            <p class="merry_1">Merry Christmas</p>
+            <h1>Gift Yourself<br>the Magic of New <br>Possibilities</h1>
+            <button class="btn">Explore Magical Gifts</button>
+            <p class="merry_2">and Happy New Year</p>
+        </div>
+    </section>
 
-  <section class="about">
-    <h2>Unleash Your Inner Superhero!</h2>
-    <p>This New Year marks the beginning of your journey to inner harmony and new strengths. We offer unique gifts that will help you improve your life.</p>
-    <div class="about-image"></div>
-  </section>
+    <section id="about" class="about">
+        <div class="about-container">
+            <div class="about-text">
+                <h2>Unleash Your Inner Superhero</h2>
+                <p>This New Year marks the beginning of your journey to harmony and new strengths...</p>
+            </div>
+            <div class="about-img">
+                <img src="./images/santa.png" alt="Santa">
+            </div>
+        </div>
+    </section>
 
-  <section class="live-create-love">
-    <h2>Become Happier in the New 2025</h2>
-    <div class="features">
-      <div class="feature">Live</div>
-      <div class="feature">Create</div>
-      <div class="feature">Love</div>
-    </div>
-  </section>
+    <section class="slider">
+        <h2>Become Happier in the New 2025</h2>
+        <div class="features">
+          <div class="feature">Live</div>
+          <div class="feature">Create</div>
+          <div class="feature">Love</div>
+        </div>
+    </section>
 
-  <section class="gifts">
+  <section id="best-gifts" class="best-gifts">
     <h2>Best Gifts Especially for You</h2>
     <div class="gift-list">
       <div class="gift">
@@ -60,7 +75,7 @@
         <p>Spontaneous Coding Philosopher</p>
       </div>
     </div>
-  </section>
+</section>
 
   <section class="footer-cta">
     <h2>Ready to Start Your Journey to a Better Version of Yourself?</h2>
@@ -68,13 +83,16 @@
     <p class="countdown">47 Days, 5 Hours, 34 Minutes, 12 Seconds</p>
   </section>
 
-  <footer>
-    <div class="footer-info">
-      <div>+375 (29) 111-22-33<br>Call Us</div>
-      <div>Magic Forest<br>Meet Us</div>
-      <div>gifts@magic.com<br>Write Us</div>
+  <footer id="footer" class="footer">
+    <div class="footer-container">
+        <p>Ready to start your journey?</p>
+        <div class="footer-links">
+            <a href="tel:+375291112233">+375 (29) 111-22-33<br>Call Us</a>
+            <a href="mailto:gifts@magic.com">Magic Forest<br>Meet Us</a>
+            <a href="https://maps.google.com">gifts@magic.com<br>Write Us</a>  <p>&copy; 2025 All Rights Reserved. Made in Rolling Scopes School</p>
+        </div>
     </div>
-    <p>&copy; 2025 All Rights Reserved. Made in Rolling Scopes School</p>
   </footer>
+</main>
 </body>
 </html>
