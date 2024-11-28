@@ -11,16 +11,19 @@
 <body class="page-body">
     <header class="header">
         <div class="header-container">
-            <div class="logo">
-                <div><img class="logo-img" src="./images/snowflake.png"></div> 
-                <div class="gifts"><a href="gifts.html">The Gifts</a></div>
-            </div>
+            <a href="gifts.html" class="logo">
+                <div><img class="logo-img" src="./images/snowflake.png" alt="Snowflake Logo"></div>
+                <div class="gifts">The Gifts</div>
+            </a>
             <nav class="nav">
-                <a href="#gifts">Gifts</a>
+                <a href="gifts.html">Gifts</a>
                 <a href="#about">About</a>
                 <a href="#best-gifts">Best</a>
                 <a href="#footer">Contacts</a>
             </nav>
+            <div class="burger-menu">
+              <img src="./images/burger.png" alt="Burger Menu">
+          </div>
         </div>
     </header>
     
@@ -37,9 +40,9 @@
     <section id="about" class="about">
         <div class="about-container">
             <div class="about-text">
-                <p>About</p>
-                <h2>Unleash Your Inner<br>Superhero!</h2>
-                <div class="text-about">This New Year marks the beginning of your journey<br>to inner harmony and new strengths. We offer<br>unique gifts that will help you improve your life.</div>
+                <div class="text-about">About</div>
+                <div class="text_unleash">Unleash Your Inner Superhero!</div>
+                <div class="text">This New Year marks the beginning of your journey to inner harmony and new strengths. We offer unique gifts that will help you improve your life.</div>
             </div>
             <div class="about-img">
                 <img src="./images/santa.png" alt="Santa">
@@ -65,6 +68,10 @@
                 <div class="live">Love</div>
                 <img src="./images/christmas-tree-ball.png" alt="Christmas Tree Ball">
               </div>
+              <div class="feature">
+                <div class="live">Dream</div>
+                <img src="./images/fairytale-house.png" alt="Christmas Tree Ball">
+              </div>
             </div>
         
             <!-- Navigation Arrows -->
@@ -79,34 +86,36 @@
     <div class="best">Best Gifts</div>
     <div class="especially">Especially for You</div>
     <div class="gift-list">
-      <div class="gift">
+
+        <a href="gifts.html" class="gift">
         <img src="./images/gift-for-work.png" alt="work">
         <div class="description one">
             <p>For Work</p>
             <div>Console.log Guru</div>
         </div>
-      </div>
-      <div class="gift">
+        </a>
+     
+      <a href="gifts.html" class="gift">
         <img src="./images/gift-for-health.png" alt="health">
         <div class="description two">
             <p>For Health</p>
             <div>Hydration Bot</div>
         </div>
-      </div>
-      <div class="gift">
+      </a>
+      <a href="gifts.html" class="gift">
         <img src="./images/gift-for-work.png" alt="work">
         <div class="description three">
             <p>For Work</p>
             <div>Merge Master</div>
         </div>
-      </div>
-      <div class="gift">
+      </a>
+      <a href="gifts.html" class="gift">
         <img src="./images/gift-for-harmony.png" alt="harmony">
         <div class="description four">
             <p>For Harmony</p>
             <div>Spontaneous Coding Philosopher</div>
         </div>
-      </div>
+      </a>
     </div>
 </section>
 
@@ -138,14 +147,59 @@
 </section>
 </main>
 
-  <footer id="footer" class="footer">
+<footer id="footer" class="footer">
     <div class="footer-container">
-        <p>Ready to start your journey?</p>
-        <div class="footer-links">
-            <a href="tel:+375291112233">+375 (29) 111-22-33<br>Call Us</a>
-            <a href="mailto:gifts@magic.com">Magic Forest<br>Meet Us</a>
-            <a href="https://maps.google.com">gifts@magic.com<br>Write Us</a>  <p>&copy; 2025 All Rights Reserved. Made in Rolling Scopes School</p>
+      <!-- Contact Links -->
+      <div class="footer-links">
+        <div class="footer-link">
+            <div class="footer-text">
+            <a href="tel:+375291112233">
+                <img src="./images/santa1.png" alt="Call Us">
+                <div>+375 (29) 111-22-33</div>
+                <span>Call Us</span>
+            </a>
+            </div>
         </div>
+        <div class="footer-link">
+            <div class="footer-text">
+            <a href="https://maps.google.com" target="_blank">
+                <img src="./images/tree.png" alt="Meet Us">
+                <div>Magic Forest</div>
+                <span>Meet Us</span>
+            </a>
+            </div>
+        </div>
+        <div class="footer-link">
+            <div class="footer-text">
+            <a href="mailto:gifts@magic.com">
+                <img src="./images/snake.png" alt="Write Us">
+                <div>gifts@magic.com</div>
+                <span>Write Us</span>
+            </a>
+            </div>
+        </div>
+    </div>
+  
+      <!-- Social Links -->
+      <div class="footer-social">
+        <a href="telegram://t.me/" target="_blank">
+          <img src="./images/telegram.svg" alt="Telegram">
+        </a>
+        <a href="https://www.facebook.com/" target="_blank">
+          <img src="./images/facebook.svg" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/" target="_blank">
+          <img src="./images/instagram.svg" alt="Instagram">
+        </a>
+        <a href="https://twitter.com/" target="_blank">
+          <img src="./images/twitter.svg" alt="Twitter">
+        </a>
+      </div>
+      
+  
+      <!-- Footer Note -->
+      <p>&copy; Copyright 2025, All Rights Reserved</p>
+      <div class="made"><a href="https://rs.school/" target="_blank">Made in Rolling Scopes School</a></div>
     </div>
   </footer>
 </body>

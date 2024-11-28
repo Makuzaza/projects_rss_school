@@ -3,6 +3,7 @@
 html {
   scroll-behavior: smooth;
 }
+
 body {
   margin: 0;
   padding: 0;
@@ -37,7 +38,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* position: sticky; */
   text-transform: uppercase;
   font-size: 12px;
   font-weight: 600;
@@ -90,13 +90,18 @@ main {
   color: #fe4646;
 }
 
+nav a:nth-child(1) {
+  background-color: #feeded;
+  color: #fe4646;
+}
+
 /* Hero Section */
 .hero {
-  height: 524px;
+  height: 200px;
   width: 100%;
   margin: 0;
   padding: 0;
-  background-image: url('./images/bg-ball.png'), url('./images/bg-snow.png');
+  background-image: url('./images/bg-garland.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -111,252 +116,52 @@ main {
  margin: 0;
 }
 
-.merry_1, .merry_2 {
-  font-family: "Allura", cursive;
-  font-weight: 400;
-  font-style: inherit;
-  font-size: 24px;
-  letter-spacing: 1px;
-}
-
-.merry_1 {
-  padding: 118px 0 8px 0;
-}
-
-h1 {
+.hero-content {
+  padding: 60px 0 0 0;
   font-size: 32px;
   font-weight: 600;
   line-height: 48.5px;
-  letter-spacing: 5.5px;
+  letter-spacing: 6px;
   text-transform: uppercase;
 }
 
-.btn {
-  height: 56px;
-  width: 235px;
-  background-color: #181C29;
-  border: none;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  font-size: 12px;
-  margin: 10px 0 10px 0;
-  color: #ffffff;
-  border-radius: 20px;
-  cursor: pointer;
-  text-transform: uppercase;
-  transition: ease-in-out 500ms;
+.hero-content span {
+    letter-spacing: 5.8px;
 }
 
-.btn:hover {
-  background-color: #fff;
-  color: #181C29;
-}
-
-/* About Section */
-.about {
-  background-image: url('./images/bg-snow.png');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 60px 80px 0 80px;
-}
-
-.about-container {
-  background-color: #ffffff;
-  color: #000000;
-  border-radius: 20px;
+.category {
+  padding: 22.5px 0 20px 0;
   display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  text-align: left;
-  height: 528px;
-}
-
-.about-text {
-  box-sizing: border-box;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: flex-start; 
-  padding: 0 150px 0 62px; 
-  gap: 18px;
-  text-align: left;
-}
-
-.text-about {
-  font-family: 'Allura', cursive;
-  font-size: 24px;
-  letter-spacing: 1px;
-  color: #ff4646;
-}
-
-.text_unleash {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-size: 24px;
-  text-transform: uppercase;
-  line-height: 1.5;
-  letter-spacing: 4px;
-  margin: 0;
-  padding: 0;
-}
-
-.text {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 23.5px;
-  letter-spacing: 0.04px;
-  margin: 0;
-}
-
-.about-img {
-  width: 50%;
-  display: flex;
-  justify-content: center; 
-  align-items: center; 
-}
-
-.about-img img {
-  max-width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 20px;
-  margin: 0;
-  padding: 0;
-  display: block;
-}
-
-/* Slider Section */
-.slider {
-  background-image: url('./images/bg-snow.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 0;
-  margin: 0;
-  text-align: center;
-}
-
-.happy {
-  font-family: 'Allura', cursive;
-  font-size: 24px;
-  letter-spacing: 1.05px;
-  padding: 116px 0 0 0;
-}
-
-.new_year {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-size: 24px;
-  text-transform: uppercase;
-  padding: 15px 0 25px 0;
-  letter-spacing: 3.95px;
-  color: white;
-}
-
-/* Features (Row of Images and Titles) */
-.slider-container {
-  width: 100%;
-  overflow: hidden;
-}
-
-.features {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  margin: 0 0 0 63px;
-}
-
-.feature {
-  display: flex;
-  flex-direction: row; /* Makes each feature vertical */
   align-items: center;
-  text-align: center;
-  margin: 0 1px 0 0;
+  flex-direction: row;
+  color: #ffffff;
+  gap: 5px;
+
 }
 
-.live {
-  font-family: 'Montserrat', sans-serif;
+.category-title {
+  font-size: 12px;
   font-weight: 600;
-  font-size: 80px;
+  letter-spacing: 1.1px;
   text-transform: uppercase;
-  color: white;
-  margin: 0 20px;
+  margin: 0 3px 0 0;
+  padding: 14px 18px;
+  transition: background-color 0.3s ease, border-radius 0.3s ease;
 }
 
-.features img {
-  width: 200px;
-  height: 200px;
-  border-radius: 20px;
-  margin: 0 auto;
-  padding: 0;
-  display: block;
-}
-
-/* Navigation Buttons Below Row */
-.slider-controls {
-  display: flex;
-  justify-content: right;
-  margin-top: 19px;
-  margin-right: 82px;
-}
-
-.slider-controls button {
-  background-color: transparent;
-  border-radius: 20px;
-  width: 56px;
-  height: 56px;
-  font-size: 18px;
-  font-weight: bold;
-  color: white;
-  cursor: pointer;
-}
-
-.prev {
-  margin-right: 20px;
-  border: rgba(255, 255, 255, 0.526) 1px solid;
-}
-
-.next {
-  border: rgb(255, 255, 255) 1px solid;
-}
-
-.slider-controls button:hover {
-  background-color: white;
-  color: #fe4646;
-  border-color: #fe4646 1px solid;
+.category-title:hover {
+  background-color: #ffffff47;
+  border-radius: 10px;
 }
 
 /* Best Gifts Section */
 .best-gifts {
-  background-image: url('./images/bg-snow.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   padding: 0;
   margin: 0;
   text-align: center;
-  padding: 80px 20px 58px 20px;
+  padding: 0 20px 58px 20px;
   color: #ffffff;
-}
-
-.best {
-  font-family: 'Allura', cursive;
-  font-size: 24px;
-  margin: 37px 0 0 0;
-  letter-spacing: 1.05px;
-}
-
-.especially {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-size: 24px;
-  text-transform: uppercase;
-  margin: 12px 0 23px 0;
-  letter-spacing: 3.85px;
 }
 
 /* Grid Styling for Gifts */
@@ -439,84 +244,6 @@ h1 {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1.25px;
-}
-
-/* Footer CTA Section */
-.footer-cta {
-  height: 668px;
-  background-image: url('./images/bg-forest.png'), url('./images/bg-snow.png'); 
-  background-size: cover;
-  background-position: center; 
-  background-repeat: no-repeat;
-  display: flex;
-  justify-content: flex-start; 
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-  color: white;
-  border-radius: 20px;
-}
-
-.footer-cta h2 {
-  padding: 161px 0 0 0;
-  font-size: 24px;
-  line-height: 1.48;
-  text-transform: uppercase;
-  letter-spacing: 3.8px;
-}
-
-.footer-cta .btn {
-  margin: 0;
-  padding: 0;
-}
-
-.footer-cta .subtitle {
-  font-size: 24px;
-  font-family: "Allura", cursive;
-  letter-spacing: 1.2px;
-  padding: 0;
-  margin: 17px 0 5px 0;
-}
-
-/* Countdown Styling */
-.footer-cta .countdown {
-  display: flex;
-  justify-content: space-around;
-  text-align: center;
-  align-items: center;
-  width: 304px;
-  height: 52px;
-  padding: 10px 20px;
-  background-color: #ffffff68;
-  border-radius: 20px;
-  margin: 0 auto;
-}
-
-.footer-cta .countdown-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 1;
-}
-
-.footer-cta .countdown-item .time {
-  font-size: 24px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  margin: 0 0 2px 0;
-}
-
-.footer-cta .countdown-item .label {
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.footer-cta img {
-  margin: 0 5px;
-  padding: 0;
-  height: 20px;
 }
 
 /* General Footer Styles */
@@ -725,6 +452,8 @@ h1 {
 
   .hero {
     height: 572px;
+    padding: 0;
+    margin: 0;
   }
 
   .merry_1 {
