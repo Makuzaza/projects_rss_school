@@ -74,12 +74,7 @@ main {
   letter-spacing: 0.8px;
 }
 
-.nav ul {
-  display: flex;
-  gap: 3.5px;
-}
-
-.nav li {
+.nav a, .nav span {
   color: black;
   text-decoration: none;
   margin: 0 3.5px;
@@ -90,9 +85,13 @@ main {
   list-style: none;
 }
 
-nav li:nth-child(1) {
+.nav span {
   background-color: #feeded;
   color: #fe4646;
+}
+
+.nav a:hover {
+  background-color: #feeded;
 }
 
 /* Hero Section */
@@ -139,6 +138,8 @@ nav li:nth-child(1) {
   color: #ffffff;
   margin: 0 15px 0 0;
   gap: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-radius 0.3s ease;
 }
 
 .category-title {
@@ -148,6 +149,11 @@ nav li:nth-child(1) {
   text-transform: uppercase;
   padding: 14px 20px;
   transition: background-color 0.3s ease, border-radius 0.3s ease;
+}
+
+.category :nth-child(1) {
+  background-color: #ffffff47;
+  border-radius: 10px;
 }
 
 .category-title:hover {
@@ -189,10 +195,15 @@ nav li:nth-child(1) {
   object-fit: cover; 
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+  transition: filter 0.3s ease;
 }
 
 .gift:hover img {
   filter: brightness(0.8);
+}
+
+.gift:hover div{
+  color: #fe4646;
 }
 
 .description {
@@ -214,23 +225,19 @@ nav li:nth-child(1) {
   margin: 12px 0 11px 0;
 }
 
-.gift .one p {
+.gift .one h3 {
   color: #5064d0;
 }
 
-.gift:hover div{
-  color: #fe4646;
-}
-
-.gift .two p {
+.gift .two h3 {
   color: #3f9066;
 }
 
-.gift .three p {
+.gift .three h3 {
   color: #5064d0;
 }
 
-.gift .four p {
+.gift .four h3 {
   color: #cd71cb;
 }
 
@@ -337,6 +344,7 @@ nav li:nth-child(1) {
 .footer-social img {
   width: auto;
   height: 24px;
+  transition: filter 0.3s ease;
 }
 
 .footer-social a:hover img {
@@ -360,6 +368,7 @@ nav li:nth-child(1) {
 .made a {
   color: black;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .made a:hover {
