@@ -1,4 +1,4 @@
-https://makuzaza.github.io/rsschool-cv/https://rolling-scopes-school.github.io/makuzaza-JSFEEN2024Q4/christmas-shop
+https://rolling-scopes-school.github.io/makuzaza-JSFEEN2024Q4/christmas-shop/
 
 ## Christmas Shop. Part-1 - Fixed Layout
 
