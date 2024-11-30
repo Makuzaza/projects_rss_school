@@ -74,23 +74,23 @@ main {
   letter-spacing: 0.8px;
 }
 
-.nav a {
+.nav ul {
+  display: flex;
+  gap: 3.5px;
+}
+
+.nav li {
   color: black;
   text-decoration: none;
   margin: 0 3.5px;
   font-size: 12px;
-  padding: 9px 20px;
-  border-radius: 15px;
-  transition: color 0.3s;
+  padding: 11px 20px;
+  border-radius: 10px;
   letter-spacing: 0.2px;
+  list-style: none;
 }
 
-.nav a:hover {
-  background-color: #feeded;
-  color: #fe4646;
-}
-
-nav a:nth-child(1) {
+nav li:nth-child(1) {
   background-color: #feeded;
   color: #fe4646;
 }
@@ -102,8 +102,8 @@ nav a:nth-child(1) {
   margin: 0;
   padding: 0;
   background-image: url('./images/bg-garland.png');
-  background-size: cover;
-  background-position: center;
+  background-size: contain;
+  background-position: top;
   background-repeat: no-repeat;
   text-align: center;
 }
@@ -126,27 +126,27 @@ nav a:nth-child(1) {
 }
 
 .hero-content span {
-    letter-spacing: 5.8px;
+  margin: 0 0 0 10px;
+  letter-spacing: 5.8px;
 }
 
 .category {
-  padding: 22.5px 0 20px 0;
+  padding: 22.5px 0 19px 14px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
   color: #ffffff;
-  gap: 5px;
-
+  margin: 0 15px 0 0;
+  gap: 10px;
 }
 
 .category-title {
   font-size: 12px;
   font-weight: 600;
-  letter-spacing: 1.1px;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
-  margin: 0 3px 0 0;
-  padding: 14px 18px;
+  padding: 14px 20px;
   transition: background-color 0.3s ease, border-radius 0.3s ease;
 }
 
@@ -206,12 +206,12 @@ nav a:nth-child(1) {
   box-sizing: border-box;
 }
 
-.gift p {
+.gift h3 {
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.7px;
   text-transform: uppercase;
-  margin: 12px 0 10px 0;
+  margin: 12px 0 11px 0;
 }
 
 .gift .one p {
@@ -402,31 +402,6 @@ nav a:nth-child(1) {
 }
 
 @media (max-width: 780px) {
-  .about {
-
-    padding: 60px 10px 0 10px;
-  }
-
-  .about-text {
-    padding: 0 50px 0 58px !important;
-  }
-  
-  .about-text {
-    padding: 0 70px 0 60px;
-  }
-
-  .features {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    margin: 0;
-    padding: 0;
-  }
-
-  .features .feature:first-child .live {
-    margin: 0 20px 0 10px;
-  }
-
   .gift-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr); 
@@ -440,7 +415,7 @@ nav a:nth-child(1) {
   }
 
   .footer-links {
-    gap: 13px;
+    gap: 15px;
   }
 }
 
@@ -451,69 +426,47 @@ nav a:nth-child(1) {
   }
 
   .hero {
-    height: 572px;
     padding: 0;
     margin: 0;
   }
 
-  .merry_1 {
-    padding: 118px 0 8px 0;
+  .hero h1{
+    margin: 0 10px;
   }
 
-  .about {
-    display: flex;
-    justify-content: center;
-    padding: 60px 5px 0 5px;
+  .hero-content span {
+    margin-right: -5px;
   }
 
-  .about-container {
-    height: 880px;
-    width: 364px;
-    background-color: #ffffff;
-    color: #000000;
-    border-radius: 20px;
-    display: flex;
-    justify-content: space-around;
-    text-align: left;
-    flex-direction: column;
-  }
-
-  .about-text {
-    box-sizing: border-box;
-    height: 40%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 0 20px 0 20px !important;
-    gap: 18px;
+  .category {
+    gap: 0;
   }
   
-  .about-img {
-    width: 100%;
-    height: 60%;
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
+  .category-title {
+    padding: 15px 8px;
   }
 
-  .slider-controls {
-    display: flex;
-    justify-content: right;
-    margin-top: 19px;
-    margin-right: 8px;
+  .best-gifts {
+    padding: 95px 0 60px 0;
   }
 
   .gift-list {
     grid-template-columns: 1fr; /* 1 gift per row */
   }
 
-  .footer {
-    padding: 96.5px 10px;
-    color: #090909;
-    text-align: center;
+  .gift .four div {
+    line-height: 23px;
+  }
+
+  .footer-links {
+    gap: 13px;
   }
 
   .footer-text div {
-    letter-spacing: 4px;
+    letter-spacing: 3.8px;
+  }
+
+  .made {
+  margin: 2px 0 0 0;
   }
 }
