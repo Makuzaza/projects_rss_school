@@ -583,12 +583,12 @@ h1 {
 }
 
 /* Entire card clickable */
-.footer-link a {
+.footer-link {
   text-decoration: none;
   color: inherit;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -596,7 +596,7 @@ h1 {
 .footer-link img {
   width: auto;
   height: 80px;
-  padding: 20px 0 16px 0;
+  padding: 20px 0 13px 0;
 }
 
 .footer-text div {
@@ -651,7 +651,7 @@ h1 {
   font-size: 16px;
   font-weight: 400;
   margin: 0;
-  padding: 0 0 10px 0;
+  padding: 0 0 11px 0;
 }
 
 .made {
@@ -694,7 +694,6 @@ h1 {
     .nav {
       display: none;
     }
-
     
     .footer-links {
       flex-direction: column;
@@ -703,7 +702,10 @@ h1 {
     
     .footer-link {
       max-width: 100%; /* Occupy full width */
-      height: auto; /* Adjust height for vertical stacking */
+    }
+
+    .footer-text {
+      padding-bottom: 20px;
     }
   }
   
@@ -821,6 +823,11 @@ h1 {
 
   .footer-text div {
     letter-spacing: 4px;
-    margin-left: 2px;
+    margin-left: 3px;
   }
+
+  .footer-social {
+    margin-top: 71px;
+  }
+
 }

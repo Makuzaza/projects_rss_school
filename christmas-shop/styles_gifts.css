@@ -272,6 +272,11 @@ main {
   gap: 13px;
 }
 
+.footer-links a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .footer-link {
   text-align: center;
   background-color: #ebf2f8;
@@ -288,12 +293,12 @@ main {
 }
 
 /* Entire card clickable */
-.footer-link a {
+.footer-link {
   text-decoration: none;
   color: inherit;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -301,7 +306,7 @@ main {
 .footer-link img {
   width: auto;
   height: 80px;
-  padding: 20px 0 16px 0;
+  padding: 20px 0 13px 0;
 }
 
 .footer-text div {
@@ -363,6 +368,7 @@ main {
   font-size: 24px;
   font-weight: 400;
   letter-spacing: 1.2px;
+  margin: 2px 0 0 0;
 }
 
 .made a {
@@ -405,8 +411,11 @@ main {
     }
   
     .footer-link {
-      max-width: 100%; /* Occupy full width */
-      height: auto; /* Adjust height for vertical stacking */
+      max-width: 100%;
+    }
+
+    .footer-text {
+      padding-bottom: 20px;
     }
 }
 
@@ -420,11 +429,19 @@ main {
     }
 
   .footer-text span {
-    margin-bottom: 21px;
+    margin-bottom: 22px;
   }
 
   .footer-links {
-    gap: 15px;
+    gap: 13px;
+  }
+
+  .footer-social {
+    margin-top: 71px;
+  }
+
+  .made {
+    margin: 1px 0 0 0;
   }
 }
 
@@ -444,7 +461,7 @@ main {
   }
 
   .hero-content span {
-    margin-right: -5px;
+    margin-left: 6px;
   }
 
   .category {
@@ -472,10 +489,11 @@ main {
   }
 
   .footer-text div {
-    letter-spacing: 3.8px;
+    letter-spacing: 4px;
+    margin-left: 2px;
   }
 
   .made {
-  margin: 2px 0 0 0;
+  margin: 1px 0 0 0;
   }
 }
