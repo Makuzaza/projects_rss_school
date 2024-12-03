@@ -198,9 +198,9 @@ main {
   transition: filter 0.3s ease;
 }
 
-.gift:hover img {
+/* .gift:hover img {
   filter: brightness(0.8);
-}
+} */
 
 .gift:hover div{
   color: #fe4646;
@@ -325,9 +325,9 @@ main {
 }
 
 /* Hover effect */
-.footer-link:hover {
-  background-color: #cbe2df; /* Slightly darker background */
-}
+/* .footer-link:hover {
+  background-color: #cbe2df; 
+} */
 
 .footer-link:hover .footer-text {
   color: #fe4646; /* Change text color */

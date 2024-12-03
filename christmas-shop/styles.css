@@ -194,13 +194,12 @@ h1 {
 }
 
 .about-text {
-  box-sizing: border-box;
-  width: 50%;
+  max-width: 51%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start; 
-  padding: 0 150px 0 62px; 
+  padding: 0 151px 0 62px; 
   gap: 18px;
   text-align: left;
   position: relative;
@@ -234,10 +233,12 @@ h1 {
 }
 
 .about-img {
-  width: 50%;
+  min-width: 50%;
   display: flex;
   justify-content: center; 
   align-items: center; 
+  margin: 0 -1px 0 0;
+  padding: 0;
 }
 
 .about-img img {
@@ -419,9 +420,9 @@ h1 {
   transition: filter 0.3s ease;
 }
 
-.gift:hover img {
+/* .gift:hover img {
   filter: brightness(0.8);
-}
+} */
 
 .description {
   width: 100%;
@@ -624,9 +625,9 @@ h1 {
 }
 
 /* Hover effect */
-.footer-link:hover {
-  background-color: #cbe2df; /* Slightly darker background */
-}
+/* .footer-link:hover {
+  background-color: #cbe2df; 
+} */
 
 .footer-link:hover .footer-text {
   color: #fe4646; /* Change text color */
@@ -789,7 +790,7 @@ h1 {
   }
 
   .about-text {
-    width: 100%;
+    max-width: 100%;
     height: 40%;
     display: flex;
     flex-direction: column;
@@ -803,6 +804,8 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center; 
+    margin: 0;
+    padding: 0;
   }
 
   .slider-controls {
