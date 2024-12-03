@@ -154,6 +154,7 @@ main {
 .category :nth-child(1) {
   background-color: #ffffff47;
   border-radius: 10px;
+  cursor: default;
 }
 
 .category-title:hover {
