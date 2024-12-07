@@ -681,6 +681,52 @@ h1 {
   color: #fe4646;
 }
 
+/* Hover effects for Desktop device type in DevTools */
+/* @media (hover: hover) and (pointer: fine) {
+  .nav a:hover {
+    background-color: #feeded;
+    color: #fe4646;
+  }
+} */
+
+/* Disable hover effects for Mobile device type in DevTools */
+@media (hover: none) and (pointer: coarse) {
+  .btn:hover {
+    background-color: #181C29;
+    color: white;
+  }
+
+  .next:hover {
+    background-color: transparent;
+    border-color: rgb(255, 255, 255) 1px solid;
+    color: white;
+  }
+
+  .next:hover img {
+    filter: none;
+  }
+
+  .gift:hover div{
+    color: black;
+  }
+
+  .footer-link:hover .footer-text {
+    color: inherit; 
+  }
+  
+  .footer-link:hover span {
+    color: inherit;
+  }
+
+  .footer-social a:hover img {
+    filter: none;
+  }
+  
+  .made a:hover {
+    color: inherit;
+  }
+}
+
 /* Media Queries */
 @media (max-width: 1300px) {
   .gift-list {
@@ -703,6 +749,14 @@ h1 {
 
     .nav {
       display: none;
+    }
+
+    .about {
+      padding: 60px 10px 0 10px;
+    }
+    
+    .about-text {
+      padding: 0 50px 0 58px;
     }
     
     .footer-links {
@@ -728,20 +782,6 @@ h1 {
   
   @media (max-width: 780px) {
 
-    .btn:hover {
-      background-color: #181C29;
-      color: white;
-    }
-
-    .about {
-      padding: 60px 10px 0 10px;
-    }
-    
-    .about-text {
-      padding: 0 50px 0 58px;
-    }
-
-  
     .features {
       display: flex;
       flex-direction: row;
@@ -761,20 +801,6 @@ h1 {
       margin-right: 8px;
     }  
     
-    .next:hover {
-      background-color: transparent;
-      border-color: rgb(255, 255, 255) 1px solid;
-      color: white;
-    }
-
-    .next:hover img {
-      filter: none;
-    }
-
-    .gift:hover div{
-      color: black;
-    }
-    
   .description {
     padding: 11px 0 0 20px;
     }
@@ -783,34 +809,64 @@ h1 {
     margin-bottom: 22px;
   }
 
-  .footer-link:hover .footer-text {
-    color: inherit; 
-  }
-  
-  .footer-link:hover span {
-    color: inherit;
-  }
-
   .footer-links {
     gap: 13px;
-  }
-
-  .footer-social a:hover img {
-    filter: none;
-  }
-  
-  .made a:hover {
-    color: inherit;
   }
 }
 
 @media (max-width: 650px) { 
 
+  .about {
+    display: flex;
+    justify-content: center;
+    padding: 60px 8px 0 8px;
+  }
+
+  .about-container {
+    height: 880px;
+    width: 364px;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    justify-items: center;
+    text-align: left;
+    flex-direction: column;
+  }
+
+  .about-text {
+    max-width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px 0 19px;
+    gap: 18.555px;
+  }
+
+  .text-about {
+    margin: -2px 0 0 0;
+  }
+
+  .text_unleash {
+    margin: -2px 0 1px 0;
+  }
+  
+  .about-img {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin: 0;
+    padding: 0;
+  }
+
   .gift-list {
     display: grid;
     grid-template-columns: 1fr; 
-    justify-items: center; /* Center items horizontally */
-    align-items: center; /* Center items vertically */
+    justify-items: center; 
+    align-items: center;
     }
 }
 
@@ -826,43 +882,6 @@ h1 {
 
   .merry_1 {
     padding: 118px 0 8px 0;
-  }
-
-  .about {
-    display: flex;
-    justify-content: center;
-    padding: 60px 5px 0 5px;
-  }
-
-  .about-container {
-    height: 880px;
-    width: 364px;
-    background-color: #ffffff;
-    color: #000000;
-    border-radius: 20px;
-    display: flex;
-    justify-content: space-around;
-    text-align: left;
-    flex-direction: column;
-  }
-
-  .about-text {
-    max-width: 100%;
-    height: 40%;
-    display: flex;
-    flex-direction: column;
-    padding: 0 20px 0 20px;
-    gap: 18px;
-  }
-  
-  .about-img {
-    width: 100%;
-    height: 60%;
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    margin: 0;
-    padding: 0;
   }
 
   .slider-controls {
