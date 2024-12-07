@@ -383,10 +383,19 @@ main {
 }
 
 /* Media Queries */
-@media (max-width: 1100px) {
+@media (max-width: 1300px) {
   .gift-list {
-    grid-template-columns: repeat(3, 1fr); /* 3 gifts per row */
+    grid-template-columns: repeat(3, 1fr);
   }
+}
+
+@media (max-width: 1000px) {
+  .gift-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    justify-content: center;
+    align-items: center;
+    }
 }
 
 @media (max-width: 1060px) {
@@ -395,11 +404,11 @@ main {
     display: flex;
     justify-content: space-between;
     margin: 0 9px 0 9px;
- 
   }
 
     .burger-menu {
       display: flex;
+      cursor: pointer;
     }
 
     .nav {
@@ -421,6 +430,12 @@ main {
 }
 
 @media (max-width: 780px) {
+
+  .category-title:hover {
+    background-color: transparent;
+    border-radius: 10px;
+  }
+  
   .gift-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr); 
@@ -429,6 +444,14 @@ main {
     gap: 12px;
     }
 
+    .gift:hover div{
+      color: black;
+    }
+
+    .description {
+      padding: 9px 0 0 20px;
+      }
+    
   .footer-text span {
     margin-bottom: 22px;
   }
@@ -441,9 +464,31 @@ main {
     margin-top: 71px;
   }
 
+  .footer-link:hover .footer-text {
+    color: black;
+  }
+  
+  .footer-link:hover span {
+    color: black;
+  }
+
   .made {
     margin: 1px 0 0 0;
   }
+
+  .made a:hover {
+    color: black;
+  }
+}
+
+@media (max-width: 650px) { 
+
+  .gift-list {
+    display: grid;
+    grid-template-columns: 1fr; 
+    justify-items: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    }
 }
 
 @media (max-width: 480px) { 
@@ -481,6 +526,10 @@ main {
     grid-template-columns: 1fr; /* 1 gift per row */
   }
 
+  .description {
+    padding: 9px 0 0 20px;
+    }
+
   .gift .four div {
     line-height: 23px;
   }
@@ -495,6 +544,6 @@ main {
   }
 
   .made {
-  margin: 1px 0 0 0;
+  margin: -1px 0 0 0;
   }
 }

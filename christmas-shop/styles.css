@@ -682,9 +682,9 @@ h1 {
 }
 
 /* Media Queries */
-@media (max-width: 1100px) {
+@media (max-width: 1300px) {
   .gift-list {
-    grid-template-columns: repeat(3, 1fr); /* 3 gifts per row */
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -694,11 +694,11 @@ h1 {
     display: flex;
     justify-content: space-between;
     margin: 0 9px 0 9px;
- 
   }
 
     .burger-menu {
       display: flex;
+      cursor: pointer;
     }
 
     .nav {
@@ -717,9 +717,22 @@ h1 {
     .footer-text {
       padding-bottom: 20px;
     }
+
+    .gift-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); 
+      justify-content: center;
+      align-items: center;
+      }
   }
   
   @media (max-width: 780px) {
+
+    .btn:hover {
+      background-color: #181C29;
+      color: white;
+    }
+
     .about {
       padding: 60px 10px 0 10px;
     }
@@ -727,7 +740,8 @@ h1 {
     .about-text {
       padding: 0 50px 0 58px;
     }
-    
+
+  
     .features {
       display: flex;
       flex-direction: row;
@@ -735,26 +749,69 @@ h1 {
       margin: 0;
       padding: 0;
     }
+    
+    .features .feature:first-child .live {
+      margin: -1px 20px 0 10px;
+    }
+    
+    .slider-controls {
+      display: flex;
+      justify-content: right;
+      margin-top: 19px;
+      margin-right: 8px;
+    }  
+    
+    .next:hover {
+      background-color: transparent;
+      border-color: rgb(255, 255, 255) 1px solid;
+      color: white;
+    }
 
-  .features .feature:first-child .live {
-    margin: -1px 20px 0 10px;
-  }
+    .next:hover img {
+      filter: none;
+    }
 
-  .gift-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); 
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
+    .gift:hover div{
+      color: black;
+    }
+    
+  .description {
+    padding: 11px 0 0 20px;
     }
 
   .footer-text span {
     margin-bottom: 22px;
   }
 
+  .footer-link:hover .footer-text {
+    color: inherit; 
+  }
+  
+  .footer-link:hover span {
+    color: inherit;
+  }
+
   .footer-links {
     gap: 13px;
   }
+
+  .footer-social a:hover img {
+    filter: none;
+  }
+  
+  .made a:hover {
+    color: inherit;
+  }
+}
+
+@media (max-width: 650px) { 
+
+  .gift-list {
+    display: grid;
+    grid-template-columns: 1fr; 
+    justify-items: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    }
 }
 
 @media (max-width: 480px) { 
@@ -813,10 +870,6 @@ h1 {
     justify-content: right;
     margin-top: 19px;
     margin-right: 8px;
-  }
-
-  .gift-list {
-    grid-template-columns: 1fr; /* 1 gift per row */
   }
 
   .description {
