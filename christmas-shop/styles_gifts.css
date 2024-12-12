@@ -429,15 +429,6 @@ main {
     margin: 0 9px 0 9px;
   }
 
-    .burger-menu {
-      display: flex;
-      cursor: pointer;
-    }
-
-    .nav {
-      display: none;
-    }
-
     .footer-links {
       flex-direction: column;
       gap: 20px;
@@ -453,6 +444,14 @@ main {
 }
 
 @media (max-width: 780px) {
+  .burger-menu {
+    display: flex;
+    cursor: pointer;
+  }
+
+  .nav {
+    display: none;
+  }
   
   .gift-list {
     display: grid;
