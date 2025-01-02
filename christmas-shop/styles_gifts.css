@@ -221,7 +221,7 @@ main {
   transition: background-color 0.3s ease, border-radius 0.3s ease;
 }
 
-.category :nth-child(1) {
+.category-title.active {
   background-color: #ffffff47;
   border-radius: 10px;
   cursor: default;
@@ -258,6 +258,7 @@ main {
   display: flex;
   flex-direction: column; 
   text-decoration: none;
+  cursor: pointer;
 }
 
 .gift img {
@@ -346,6 +347,7 @@ main {
   color: #090909;
   border-radius: 20px;
   max-width: 400px;
+  width: 100%;
   position: relative;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -386,7 +388,7 @@ main {
   font-weight: 600;
   letter-spacing: 0.7px;
   text-transform: uppercase;
-  margin: 12px 0 11px 0;
+  margin: 12px 0 0 0;
 }
 
 #modal-name {
@@ -395,6 +397,13 @@ main {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1.25px;
+  margin: 10px 0 0 0;
+}
+
+.modal-description {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23.68px;
 }
 
 .modal-superpower {
@@ -404,17 +413,22 @@ main {
 
 #modal-adds {
   text-transform: uppercase;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
+  margin-top: 24px;
+}
+
+.modal-superpower {
+  margin-bottom: 4px;
 }
 
 .modal-superpower .key {
-  width: 46%;
+  width: 51%;
 }
 
 .modal-superpower .value {
   width: 10%;
-  margin-right: 5px;
+  margin-right: 6px;
 }
 
 .modal-superpower div {
@@ -692,6 +706,7 @@ main {
   }
 
   #back-to-top {
+    display: none;
     position: fixed;
     bottom: 20px;
     right: 20px;

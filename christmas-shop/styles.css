@@ -359,12 +359,13 @@ h1 {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  margin: 0 0 0 63px;
+  margin: 0 63px 0 63px;
+  transition: transform 0.3s ease;
 }
 
 .feature {
   display: flex;
-  flex-direction: row; /* Makes each feature vertical */
+  flex-direction: row;
   align-items: center;
   text-align: center;
   margin: 0 1px 0 0;
@@ -406,30 +407,43 @@ h1 {
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .prev {
   margin-right: 20px;
-  border: rgba(255, 255, 255, 0.526) 1px solid;
+  rotate: 180deg;
 }
 
-.next {
+.next, .prev {
   border: rgb(255, 255, 255) 1px solid;
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-.prev:hover {
-  cursor: default;
-}
-
-.next:hover {
+.next:hover, .prev:hover {
   background-color: white;
   color: #fe4646;
   border-color: #fe4646 1px solid;
 }
 
-.next:hover img {
+.next:hover img, .prev:hover img {
   filter: invert(50%) sepia(100%) saturate(2500%) hue-rotate(0deg) brightness(100%) contrast(150%);
+}
+
+/* Disabled Buttons */
+.slider-controls button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.slider-controls button:disabled:hover {
+  background-color: transparent;
+}
+
+.slider-controls button:disabled:hover img{
+  filter: none;
 }
 
 /* Best Gifts Section */
@@ -462,12 +476,13 @@ h1 {
 }
 
 /* Grid Styling for Gifts */
-.gift-list {
+.gift-home {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* Fixed 4 columns */
   justify-content: center;
   padding: 0 98px;
   gap: 12px;
+  cursor: pointer;
 }
 
 .gift {
@@ -542,6 +557,155 @@ h1 {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1.25px;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none; 
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal Window */
+.modal {
+  display: flex;
+  flex-direction: column; 
+  background-color: #ebf2f8;
+  color: #090909;
+  border-radius: 20px;
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal Content */
+.modal-content {
+  padding: 0;
+  margin: 0;
+}
+
+/* Modal Image Container */
+.modal-image-container {
+  width: 100%;
+  height: 230px;
+  object-fit: cover; 
+}
+
+.modal-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Modal Text Container */
+.modal-text-container {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  color: black;
+  text-align: left;
+  padding: 7px 20px 20px 20px; 
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+.modal-text-container h3 {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  margin: 12px 0 0 0;
+}
+
+#modal-name {
+  color: #333333;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.25px;
+  margin: 10px 0 0 0;
+}
+
+.modal-description {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23.68px;
+}
+
+.modal-superpower {
+  display: flex;
+  flex-direction: row;
+}
+
+#modal-adds {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 24px;
+}
+
+.modal-superpower {
+  margin-bottom: 4px;
+}
+
+.modal-superpower .key {
+  width: 51%;
+}
+
+.modal-superpower .value {
+  width: 10%;
+  margin-right: 6px;
+}
+
+.modal-superpower div {
+  padding: 0 10px 0 0;
+}
+
+.snowflakes img {
+  margin-right: 5px;
+}
+
+.snowflakes img:last-child {
+  margin-right: 0;
+}
+
+/* Close Button */
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-close span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.545);
+  border-radius: 2px;
+}
+
+.modal-close span:nth-child(1) {
+  transform: rotate(45deg) translateY(1px);
+}
+
+.modal-close span:nth-child(2) {
+  transform: rotate(-45deg) translateY(-1px);
 }
 
 /* Footer CTA Section */
@@ -765,13 +929,13 @@ h1 {
     color: white;
   }
 
-  .next:hover {
+  .next:hover, .prev:hover {
     background-color: transparent;
     border-color: rgb(255, 255, 255) 1px solid;
     color: white;
   }
 
-  .next:hover img {
+  .next:hover img, .prev:hover img {
     filter: none;
   }
 
@@ -798,7 +962,7 @@ h1 {
 
 /* Media Queries */
 @media (max-width: 1300px) {
-  .gift-list {
+  .gift-home {
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -831,11 +995,12 @@ h1 {
       padding-bottom: 20px;
     }
 
-    .gift-list {
+    .gift-home {
       display: grid;
       grid-template-columns: repeat(2, 1fr); 
       justify-content: center;
       align-items: center;
+      cursor: pointer;
       }
   }
   
@@ -862,6 +1027,10 @@ h1 {
     
     .features .feature:first-child .live {
       margin: -1px 20px 0 10px;
+    }
+
+    .features .feature:last-child .live {
+      margin-right: 10px;
     }
     
     .slider-controls {
@@ -932,11 +1101,12 @@ h1 {
     padding: 0;
   }
 
-  .gift-list {
+  .gift-home {
     display: grid;
     grid-template-columns: 1fr; 
     justify-items: center; 
     align-items: center;
+    cursor: pointer;
     }
 }
 
@@ -971,7 +1141,11 @@ h1 {
   }
 
   .description {
-  padding: 11px 0 0 20px;
+  padding: 11px 10px 0 20px;
+  }
+
+  .modal {
+    margin: 10px;
   }
 
   .footer-cta {
@@ -1005,5 +1179,28 @@ h1 {
   .footer-social {
     margin-top: 71px;
   }
+}
 
+@media (max-width: 400px) { 
+  .modal-superpower .key {
+    width: 40%;
+  }
+}
+
+@media (max-width: 365px) { 
+  .modal-superpower .key {
+    width: 30%;
+  }
+}
+
+@media (max-width: 310px) { 
+  .modal-superpower .key {
+    width: 20%;
+  }
+  .snowflakes {
+    background: #333333;
+  }
+  .snowflakes img:first-child {
+    margin-left: 5px;
+  }
 }

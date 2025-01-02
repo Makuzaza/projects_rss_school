@@ -92,7 +92,7 @@
         
             <!-- Navigation Arrows -->
             <div class="slider-controls">
-              <button class="prev"><img src="./images/left.svg" alt="left"></button>
+              <button class="prev"><img src="./images/right.svg" alt="left"></button>
               <button class="next"><img src="./images/right.svg" alt="right"></button>
             </div>
           </div>
@@ -101,8 +101,7 @@
   <section id="best-gifts" class="best-gifts">
     <div class="best">Best Gifts</div>
     <h2 class="especially">Especially for You</h2>
-    <div class="gift-list">
-
+    <div class="gift-home"></div>
         <!-- <a href="gifts.html" class="gift">
         <img src="./images/gift-for-work.png" alt="work">
         <div class="description one">
@@ -132,7 +131,27 @@
             <div>Spontaneous Coding Philosopher</div>
         </div>
       </a> -->
-    </div>
+    <!-- </div> -->
+    <div class="modal-overlay" id="modal-overlay">
+      <div class="modal" id="modal">
+          <button class="modal-close" id="modal-close">
+            <span></span>
+            <span></span>
+          </button>
+          <div class="modal-content">
+              <div class="modal-image-container">
+                  <img id="modal-image" src="" alt="Gift Image">
+              </div>
+              <div class="modal-text-container">
+                  <h3 id="modal-category"></h3>
+                  <p id="modal-name"></p>
+                  <p id="modal-description"></p>
+                  <p id="modal-adds">Adds superpowers to:</p>
+                  <div id="modal-superpowers-container"></div>
+              </div>
+          </div>
+      </div>
+  </div>
 </section>
 
 <section class="footer-cta">
@@ -215,5 +234,6 @@
       <div class="made"><a href="https://rs.school/" target="_blank">Made in Rolling Scopes School</a></div>
   </footer>
   <script src="script.js"></script>
+  <script src="home.js"></script>
 </body>
 </html>
