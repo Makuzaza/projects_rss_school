@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Allura&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Allura&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 html {
   scroll-behavior: smooth;
@@ -7,7 +7,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .page-body {
@@ -34,7 +34,7 @@ body {
 .header-container {
   background: rgb(255, 255, 255);
   color: black;
-  margin: 0 80px 0 83px; 
+  margin: 0 80px 0 83px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -106,7 +106,6 @@ body {
   align-items: center;
   gap: 38px;
   text-align: center;
-  margin: -75px 0 0 0;
 }
 
 .mobile-nav a {
@@ -144,7 +143,8 @@ main {
   letter-spacing: 0.8px;
 }
 
-.nav a, .nav span {
+.nav a,
+.nav span {
   color: black;
   text-decoration: none;
   margin: 0 3.5px;
@@ -170,19 +170,20 @@ main {
   width: 100%;
   margin: 0;
   padding: 0;
-  background-image: url('./images/bg-garland.png');
+  background-image: url("./images/bg-garland.png");
   background-size: contain;
   background-position: top;
   background-repeat: no-repeat;
   text-align: center;
 }
 
-.hero h1, .hero p {
+.hero h1,
+.hero p {
   margin: 0;
 }
 
 .container {
- margin: 0;
+  margin: 0;
 }
 
 .hero-content {
@@ -256,7 +257,7 @@ main {
   background-color: #ebf2f8;
   border-radius: 20px;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   text-decoration: none;
   cursor: pointer;
 }
@@ -264,7 +265,7 @@ main {
 .gift img {
   width: 100%;
   height: 230px;
-  object-fit: cover; 
+  object-fit: cover;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   transition: filter 0.3s ease;
@@ -274,7 +275,7 @@ main {
   filter: brightness(0.8);
 } */
 
-.gift:hover div{
+.gift:hover div {
   color: #fe4646;
 }
 
@@ -284,7 +285,7 @@ main {
   background-color: white;
   color: black;
   text-align: left;
-  padding: 7px 20px 0 20px; 
+  padding: 7px 20px 0 20px;
   border-radius: 20px;
   box-sizing: border-box;
 }
@@ -333,7 +334,7 @@ main {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  display: none; 
+  display: none;
   justify-content: center;
   align-items: center;
   z-index: 1000;
@@ -342,7 +343,7 @@ main {
 /* Modal Window */
 .modal {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   background-color: #ebf2f8;
   color: #090909;
   border-radius: 20px;
@@ -362,7 +363,7 @@ main {
 .modal-image-container {
   width: 100%;
   height: 230px;
-  object-fit: cover; 
+  object-fit: cover;
 }
 
 .modal-image-container img {
@@ -378,7 +379,7 @@ main {
   background-color: white;
   color: black;
   text-align: left;
-  padding: 7px 20px 20px 20px; 
+  padding: 7px 10px 20px 20px;
   border-radius: 20px;
   box-sizing: border-box;
 }
@@ -436,7 +437,7 @@ main {
 }
 
 .snowflakes img {
-  margin-right: 5px;
+  margin-right: 6px;
 }
 
 .snowflakes img:last-child {
@@ -509,8 +510,8 @@ main {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  transition: background-color 0.3s ease, color 0.3s ease; 
-  cursor: pointer; 
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
 }
 
 /* Entire card clickable */
@@ -574,7 +575,8 @@ main {
 }
 
 .footer-social a:hover img {
-  filter: invert(21%) sepia(96%) saturate(1700%) hue-rotate(-5deg) brightness(96%) contrast(116%);
+  filter: invert(21%) sepia(96%) saturate(1700%) hue-rotate(-5deg)
+    brightness(96%) contrast(116%);
 }
 
 .footer p {
@@ -603,19 +605,14 @@ main {
 }
 
 @media (hover: none) and (pointer: coarse) {
-  .category-title:hover {
-    background-color: transparent;
-    border-radius: 10px;
-  }
-
-  .gift:hover div{
+  .gift:hover div {
     color: black;
   }
 
   .footer-link:hover .footer-text {
     color: black;
   }
-  
+
   .footer-link:hover span {
     color: black;
   }
@@ -635,38 +632,36 @@ main {
 @media (max-width: 1000px) {
   .gift-list {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(2, 1fr);
     justify-content: center;
     align-items: center;
-    }
+  }
 }
 
 @media (max-width: 1060px) {
-
   .header-container {
     display: flex;
     justify-content: space-between;
     margin: 0 9px 0 9px;
   }
 
-    .footer-links {
-      flex-direction: column;
-      gap: 20px;
-    }
-  
-    .footer-link {
-      max-width: 100%;
-    }
+  .footer-links {
+    flex-direction: column;
+    gap: 20px;
+  }
 
-    .footer-text {
-      padding-bottom: 20px;
-    }
+  .footer-link {
+    max-width: 100%;
+  }
+
+  .footer-text {
+    padding-bottom: 20px;
+  }
 }
 
-@media (max-width: 770px) {
+@media (max-width: 769px) {
   .burger-menu {
     display: flex;
-    cursor: pointer;
   }
 
   .burger-icon {
@@ -676,19 +671,43 @@ main {
   .nav {
     display: none;
   }
-  
+
+  #back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 8px;
+    right: 8px;
+    background-color: rgb(255, 255, 255);
+    width: 56px;
+    height: 56px;
+    border: #fe4646 1px solid;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 999;
+  }
+
+  #back-to-top img {
+    filter: invert(80%) sepia(100%) saturate(3500%) hue-rotate(0deg)
+      brightness(100%) contrast(250%);
+    transform: rotate(90deg);
+  }
+}
+
+@media (max-width: 770px) {
   .gift-list {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(2, 1fr);
     justify-content: center;
     padding: 0 60px;
     gap: 12px;
-    }
+  }
 
-    .description {
-      padding: 9px 10px 0 20px;
-    }
-    
+  .description {
+    padding: 9px 10px 0 20px;
+  }
+
   .footer-text span {
     margin-bottom: 22px;
   }
@@ -704,41 +723,18 @@ main {
   .made {
     margin: 1px 0 0 0;
   }
-
-  #back-to-top {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: rgb(255, 255, 255);
-    width: 56px;
-    height: 56px;
-    border: #fe4646 1px solid;
-    border-radius: 50%;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 999;
-  }
-
-  #back-to-top img {
-    filter: invert(80%) sepia(100%) saturate(3500%) hue-rotate(0deg) brightness(100%) contrast(250%);
-    transform: rotate(90deg); 
-  }
 }
 
-@media (max-width: 650px) { 
-
+@media (max-width: 650px) {
   .gift-list {
     display: grid;
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr;
     justify-items: center;
     align-items: center;
-    }
+  }
 }
 
-@media (max-width: 480px) { 
-
+@media (max-width: 480px) {
   .header-container {
     margin: 0 9px 0 9px;
   }
@@ -748,27 +744,26 @@ main {
     margin: 0;
   }
 
-  .hero h1{
+  .hero h1 {
     margin: 0 10px;
   }
 
   .hero-content span {
     margin-left: 6px;
   }
-  
+
   .mobile-nav {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 38px;
     text-align: center;
-    margin: -285px 0 0 0;
   }
 
   .category {
     gap: 0;
   }
-  
+
   .category-title {
     padding: 15px 8px;
   }
@@ -783,7 +778,7 @@ main {
 
   .description {
     padding: 9px 10px 0 20px;
-    }
+  }
 
   .gift .four div {
     line-height: 23px;
@@ -803,28 +798,41 @@ main {
   }
 
   .made {
-  margin: -1px 0 0 0;
+    margin: -1px 0 0 0;
   }
 }
 
-@media (max-width: 400px) { 
+@media (max-width: 400px) {
+  .modal-text-container {
+    padding: 7px 10px 20px 18px;
+  }
+
+  .modal-text-container h3 {
+    margin: 10px 0 0 0;
+  }
+
+  .modal-superpower .key {
+    width: 45%;
+  }
+
+  .modal-superpower .value {
+    width: 11%;
+    margin-right: 7px;
+  }
+  .snowflakes img {
+    margin-right: 7px;
+  }
+}
+
+@media (max-width: 377px) {
   .modal-superpower .key {
     width: 40%;
   }
 }
 
-@media (max-width: 365px) { 
+@media (max-width: 344px) {
   .modal-superpower .key {
-    width: 30%;
-  }
-}
-
-@media (max-width: 310px) { 
-  .modal-superpower .key {
-    width: 20%;
-  }
-  .snowflakes {
-    background: #333333;
+    width: 25%;
   }
   .snowflakes img:first-child {
     margin-left: 5px;

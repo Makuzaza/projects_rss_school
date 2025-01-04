@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Allura&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Allura&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 html {
   scroll-behavior: smooth;
@@ -6,7 +6,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .page-body {
@@ -33,7 +33,7 @@ body {
 .header-container {
   background: rgb(255, 255, 255);
   color: black;
-  margin: 0 80px 0 83px; 
+  margin: 0 80px 0 83px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -106,7 +106,6 @@ body {
   align-items: center;
   gap: 38px;
   text-align: center;
-  margin: -75px 0 0 0;
 }
 
 .mobile-nav a {
@@ -166,19 +165,20 @@ main {
   width: 100%;
   margin: 0;
   padding: 0;
-  background-image: url('./images/bg-ball.png'), url('./images/bg-snow.png');
+  background-image: url("./images/bg-ball.png"), url("./images/bg-snow.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   text-align: center;
 }
 
-.hero h1, .hero p {
+.hero h1,
+.hero p {
   margin: 0;
 }
 
 .container {
- margin: 0;
+  margin: 0;
 }
 
 .hero-content {
@@ -193,7 +193,8 @@ main {
   letter-spacing: 5.8px;
 }
 
-.merry_1, .merry_2 {
+.merry_1,
+.merry_2 {
   font-family: "Allura", cursive;
   font-weight: 400;
   font-style: inherit;
@@ -219,7 +220,7 @@ h1 {
   align-items: center;
   height: 56px;
   width: 235px;
-  background-color: #181C29;
+  background-color: #181c29;
   border: none;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
@@ -239,14 +240,14 @@ h1 {
 
 .btn:hover {
   background-color: #fff;
-  color: #181C29;
+  color: #181c29;
 }
 
 /* About Section */
 .about {
-  background-image: url('./images/bg-snow.png');
+  background-image: url("./images/bg-snow.png");
   background-size: 108%;
-  background-position: -58px 0; 
+  background-position: -58px 0;
   background-repeat: no-repeat;
   padding: 60px 80px 0 80px;
 }
@@ -268,21 +269,21 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start; 
-  padding: 0 151px 0 62px; 
+  align-items: flex-start;
+  padding: 0 151px 0 62px;
   gap: 18px;
   text-align: left;
 }
 
 .text-about {
-  font-family: 'Allura', cursive;
+  font-family: "Allura", cursive;
   font-size: 24px;
   letter-spacing: 1px;
   color: #ff4646;
 }
 
 .text_unleash {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   font-size: 24px;
   text-transform: uppercase;
@@ -293,7 +294,7 @@ h1 {
 }
 
 .text {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
@@ -304,8 +305,8 @@ h1 {
 .about-img {
   min-width: 50%;
   display: flex;
-  justify-content: center; 
-  align-items: center; 
+  justify-content: center;
+  align-items: center;
   margin: 0 -1px 0 0;
   padding: 0;
 }
@@ -322,7 +323,7 @@ h1 {
 
 /* Slider Section */
 .slider {
-  background-image: url('./images/bg-snow.png');
+  background-image: url("./images/bg-snow.png");
   background-size: cover;
   background-position: 0 3px;
   background-repeat: no-repeat;
@@ -332,14 +333,14 @@ h1 {
 }
 
 .happy {
-  font-family: 'Allura', cursive;
+  font-family: "Allura", cursive;
   font-size: 24px;
   letter-spacing: 1.05px;
   padding: 117px 0 0 0;
 }
 
 .new_year {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   font-size: 24px;
   text-transform: uppercase;
@@ -372,7 +373,7 @@ h1 {
 }
 
 .live {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   font-size: 80px;
   text-transform: uppercase;
@@ -406,7 +407,8 @@ h1 {
   font-weight: bold;
   color: white;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -417,19 +419,24 @@ h1 {
   rotate: 180deg;
 }
 
-.next, .prev {
+.next,
+.prev {
   border: rgb(255, 255, 255) 1px solid;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
 }
 
-.next:hover, .prev:hover {
+.next:hover,
+.prev:hover {
   background-color: white;
   color: #fe4646;
   border-color: #fe4646 1px solid;
 }
 
-.next:hover img, .prev:hover img {
-  filter: invert(50%) sepia(100%) saturate(2500%) hue-rotate(0deg) brightness(100%) contrast(150%);
+.next:hover img,
+.prev:hover img {
+  filter: invert(50%) sepia(100%) saturate(2500%) hue-rotate(0deg)
+    brightness(100%) contrast(150%);
 }
 
 /* Disabled Buttons */
@@ -442,13 +449,13 @@ h1 {
   background-color: transparent;
 }
 
-.slider-controls button:disabled:hover img{
+.slider-controls button:disabled:hover img {
   filter: none;
 }
 
 /* Best Gifts Section */
 .best-gifts {
-  background-image: url('./images/bg-snow.png');
+  background-image: url("./images/bg-snow.png");
   background-size: 99.99%;
   background-position: 0 35px;
   background-repeat: no-repeat;
@@ -460,14 +467,14 @@ h1 {
 }
 
 .best {
-  font-family: 'Allura', cursive;
+  font-family: "Allura", cursive;
   font-size: 24px;
   margin: 37px 0 0 0;
   letter-spacing: 1.05px;
 }
 
 .especially {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   font-size: 24px;
   text-transform: uppercase;
@@ -491,14 +498,14 @@ h1 {
   background-color: #ebf2f8;
   border-radius: 20px;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   text-decoration: none;
 }
 
 .gift img {
   width: 100%;
   height: 230px;
-  object-fit: cover; 
+  object-fit: cover;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   transition: filter 0.3s ease;
@@ -514,7 +521,7 @@ h1 {
   background-color: white;
   color: black;
   text-align: left;
-  padding: 8px 0 0 20px; 
+  padding: 8px 0 0 20px;
   border-radius: 20px;
   box-sizing: border-box;
 }
@@ -531,7 +538,7 @@ h1 {
   color: #5064d0;
 }
 
-.gift:hover div{
+.gift:hover div {
   color: #fe4646;
 }
 
@@ -567,7 +574,7 @@ h1 {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  display: none; 
+  display: none;
   justify-content: center;
   align-items: center;
   z-index: 1000;
@@ -576,7 +583,7 @@ h1 {
 /* Modal Window */
 .modal {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   background-color: #ebf2f8;
   color: #090909;
   border-radius: 20px;
@@ -596,7 +603,7 @@ h1 {
 .modal-image-container {
   width: 100%;
   height: 230px;
-  object-fit: cover; 
+  object-fit: cover;
 }
 
 .modal-image-container img {
@@ -612,7 +619,7 @@ h1 {
   background-color: white;
   color: black;
   text-align: left;
-  padding: 7px 20px 20px 20px; 
+  padding: 7px 10px 20px 20px;
   border-radius: 20px;
   box-sizing: border-box;
 }
@@ -670,7 +677,7 @@ h1 {
 }
 
 .snowflakes img {
-  margin-right: 5px;
+  margin-right: 6px;
 }
 
 .snowflakes img:last-child {
@@ -711,12 +718,12 @@ h1 {
 /* Footer CTA Section */
 .footer-cta {
   height: 668px;
-  background-image: url('./images/bg-forest.png'), url('./images/bg-snow.png'); 
+  background-image: url("./images/bg-forest.png"), url("./images/bg-snow.png");
   background-size: cover;
-  background-position: center; 
+  background-position: center;
   background-repeat: no-repeat;
   display: flex;
-  justify-content: flex-start; 
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   text-align: center;
@@ -821,8 +828,8 @@ h1 {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  transition: background-color 0.3s ease, color 0.3s ease; 
-  cursor: pointer; 
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
 }
 
 /* Entire card clickable */
@@ -887,7 +894,8 @@ h1 {
 }
 
 .footer-social a:hover img {
-  filter: invert(21%) sepia(96%) saturate(1700%) hue-rotate(-5deg) brightness(96%) contrast(116%);
+  filter: invert(21%) sepia(96%) saturate(1700%) hue-rotate(-5deg)
+    brightness(96%) contrast(116%);
 }
 
 .footer p {
@@ -925,28 +933,30 @@ h1 {
 /* Disable hover effects for Mobile device type in DevTools */
 @media (hover: none) and (pointer: coarse) {
   .btn:hover {
-    background-color: #181C29;
+    background-color: #181c29;
     color: white;
   }
 
-  .next:hover, .prev:hover {
+  .next:hover,
+  .prev:hover {
     background-color: transparent;
     border-color: rgb(255, 255, 255) 1px solid;
     color: white;
   }
 
-  .next:hover img, .prev:hover img {
+  .next:hover img,
+  .prev:hover img {
     filter: none;
   }
 
-  .gift:hover div{
+  .gift:hover div {
     color: black;
   }
 
   .footer-link:hover .footer-text {
-    color: inherit; 
+    color: inherit;
   }
-  
+
   .footer-link:hover span {
     color: inherit;
   }
@@ -954,7 +964,7 @@ h1 {
   .footer-social a:hover img {
     filter: none;
   }
-  
+
   .made a:hover {
     color: inherit;
   }
@@ -968,81 +978,82 @@ h1 {
 }
 
 @media (max-width: 1060px) {
-
   .header-container {
     display: flex;
     justify-content: space-between;
     margin: 0 9px 0 9px;
   }
-    .about {
-      padding: 60px 10px 0 10px;
-    }
-    
-    .about-text {
-      padding: 0 50px 0 58px;
-    }
-    
-    .footer-links {
-      flex-direction: column;
-      gap: 20px;
-    }
-    
-    .footer-link {
-      max-width: 100%; /* Occupy full width */
-    }
-
-    .footer-text {
-      padding-bottom: 20px;
-    }
-
-    .gift-home {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr); 
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      }
+  .about {
+    padding: 60px 10px 0 10px;
   }
-  
-  @media (max-width: 780px) {
-    .burger-menu {
-      display: flex;
-    }
 
-    .burger-icon {
-      display: flex;
-    }
+  .about-text {
+    padding: 0 50px 0 58px;
+  }
 
-    .nav {
-      display: none;
-    }
+  .footer-links {
+    flex-direction: column;
+    gap: 20px;
+  }
 
-    .features {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      margin: 0;
-      padding: 0;
-    }
-    
-    .features .feature:first-child .live {
-      margin: -1px 20px 0 10px;
-    }
+  .footer-link {
+    max-width: 100%; /* Occupy full width */
+  }
 
-    .features .feature:last-child .live {
-      margin-right: 10px;
-    }
-    
-    .slider-controls {
-      display: flex;
-      justify-content: right;
-      margin-top: 19px;
-      margin-right: 8px;
-    }  
-    
+  .footer-text {
+    padding-bottom: 20px;
+  }
+
+  .gift-home {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 769px) {
+  .burger-menu {
+    display: flex;
+  }
+
+  .burger-icon {
+    display: flex;
+  }
+
+  .nav {
+    display: none;
+  }
+}
+
+@media (max-width: 780px) {
+  .features {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+  }
+
+  .features .feature:first-child .live {
+    margin: -1px 20px 0 10px;
+  }
+
+  .features .feature:last-child .live {
+    margin-right: 10px;
+  }
+
+  .slider-controls {
+    display: flex;
+    justify-content: right;
+    margin-top: 19px;
+    margin-right: 8px;
+  }
+
   .description {
     padding: 11px 0 0 20px;
-    }
+  }
 
   .footer-text span {
     margin-bottom: 22px;
@@ -1053,8 +1064,7 @@ h1 {
   }
 }
 
-@media (max-width: 650px) { 
-
+@media (max-width: 650px) {
   .about {
     display: flex;
     justify-content: center;
@@ -1090,28 +1100,27 @@ h1 {
   .text_unleash {
     margin: -2px 0 1px 0;
   }
-  
+
   .about-img {
     width: 100%;
     height: 60%;
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
     margin: 0;
     padding: 0;
   }
 
   .gift-home {
     display: grid;
-    grid-template-columns: 1fr; 
-    justify-items: center; 
+    grid-template-columns: 1fr;
+    justify-items: center;
     align-items: center;
     cursor: pointer;
-    }
+  }
 }
 
-@media (max-width: 480px) { 
-
+@media (max-width: 480px) {
   .header-container {
     margin: 0 9px 0 9px;
   }
@@ -1126,9 +1135,8 @@ h1 {
     align-items: center;
     gap: 38px;
     text-align: center;
-    margin: -285px 0 0 0;
   }
-  
+
   .merry_1 {
     padding: 118px 0 8px 0;
   }
@@ -1141,7 +1149,7 @@ h1 {
   }
 
   .description {
-  padding: 11px 10px 0 20px;
+    padding: 11px 10px 0 20px;
   }
 
   .modal {
@@ -1150,9 +1158,9 @@ h1 {
 
   .footer-cta {
     height: 668px;
-    background-image: url('./images/bg-forest.png'), url('./images/bg-snow.png'); 
+    background-image: url("./images/bg-forest.png"), url("./images/bg-snow.png");
     background-size: cover;
-    background-position:  center;
+    background-position: center;
     background-repeat: no-repeat;
     padding: 40px 0 0 0;
   }
@@ -1181,24 +1189,37 @@ h1 {
   }
 }
 
-@media (max-width: 400px) { 
+@media (max-width: 400px) {
+  .modal-text-container {
+    padding: 7px 10px 20px 18px;
+  }
+
+  .modal-text-container h3 {
+    margin: 10px 0 0 0;
+  }
+
+  .modal-superpower .key {
+    width: 45%;
+  }
+
+  .modal-superpower .value {
+    width: 11%;
+    margin-right: 7px;
+  }
+  .snowflakes img {
+    margin-right: 7px;
+  }
+}
+
+@media (max-width: 377px) {
   .modal-superpower .key {
     width: 40%;
   }
 }
 
-@media (max-width: 365px) { 
+@media (max-width: 344px) {
   .modal-superpower .key {
-    width: 30%;
-  }
-}
-
-@media (max-width: 310px) { 
-  .modal-superpower .key {
-    width: 20%;
-  }
-  .snowflakes {
-    background: #333333;
+    width: 25%;
   }
   .snowflakes img:first-child {
     margin-left: 5px;

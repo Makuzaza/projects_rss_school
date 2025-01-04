@@ -1,72 +1,86 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const backToTopButton = document.getElementById('back-to-top');
-    const modalOverlay = document.getElementById("modal-overlay");
-    const modalClose = document.getElementById("modal-close");
-    const modalImage = document.getElementById("modal-image");
-    const modalCategory = document.getElementById("modal-category");
-    const modalName = document.getElementById("modal-name");
-    const modalDescription = document.getElementById("modal-description");
-    const modalSuperpowersContainer = document.getElementById("modal-superpowers-container");
-    const giftList = document.querySelector('.gift-list');
-    const categoryTitles = document.querySelectorAll('.category-title');
-    
-    let allGifts = []; // Store all gifts for filtering
+  const backToTopButton = document.getElementById("back-to-top");
+  const modalOverlay = document.getElementById("modal-overlay");
+  const modalClose = document.getElementById("modal-close");
+  const modalImage = document.getElementById("modal-image");
+  const modalCategory = document.getElementById("modal-category");
+  const modalName = document.getElementById("modal-name");
+  const modalDescription = document.getElementById("modal-description");
+  const modalSuperpowersContainer = document.getElementById(
+    "modal-superpowers-container"
+  );
+  const giftList = document.querySelector(".gift-list");
+  const categoryTitles = document.querySelectorAll(".category-title");
 
-    // Set "All" category button to active on page load
-    const allButton = document.querySelector('.category-title[data-category="All"]');
-    if (allButton) {
-        allButton.classList.add("active");
-    }
-        
-     // Show or hide the button based on scroll position
-  window.addEventListener('scroll', () => {
+  let allGifts = []; // Store all gifts for filtering
+
+  // Set "All" category button to active on page load
+  const allButton = document.querySelector(
+    '.category-title[data-category="All"]'
+  );
+  if (allButton) {
+    allButton.classList.add("active");
+  }
+
+  // Show or hide the button based on scroll position
+  window.addEventListener("scroll", () => {
     if (window.scrollY > 300) {
-      backToTopButton.style.display = 'flex';
+      backToTopButton.style.display = "flex";
     } else {
-      backToTopButton.style.display = 'none';
+      backToTopButton.style.display = "none";
     }
   });
 
-    // Scroll to top when the button is clicked
-    backToTopButton.addEventListener('click', () => {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      });
+  // Scroll to top when the button is clicked
+  backToTopButton.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
 
-        // Fetch the JSON file
-  fetch('./gifts.json')
-  .then(response => response.json())
-  .then(gifts => {
+  // Fetch the JSON file
+  fetch("./gifts.json")
+    .then((response) => response.json())
+    .then((gifts) => {
       const categoryConfig = {
-          "For Work": { color: "#5064d0", image: "./images/gift-for-work.png" },
-          "For Health": { color: "#3f9066", image: "./images/gift-for-health.png" },
-          "For Harmony": { color: "#cd71cb", image: "./images/gift-for-harmony.png" }
+        "For Work": { color: "#5064d0", image: "./images/gift-for-work.png" },
+        "For Health": {
+          color: "#3f9066",
+          image: "./images/gift-for-health.png",
+        },
+        "For Harmony": {
+          color: "#cd71cb",
+          image: "./images/gift-for-harmony.png",
+        },
       };
 
       const shuffledGifts = [...gifts].sort(() => Math.random() - 0.5);
 
       allGifts = shuffledGifts; // Store all gifts for filtering
 
-     // Function to render gifts based on category
-     const renderGifts = (category) => {
+      // Function to render gifts based on category
+      const renderGifts = (category) => {
         giftList.innerHTML = ""; // Clear the gift list
         const normalizedCategory = category.trim().toLowerCase();
-        const filteredGifts = normalizedCategory === "all" 
-        ? allGifts 
-        : allGifts.filter(gift => gift.category.trim().toLowerCase() === normalizedCategory);
+        const filteredGifts =
+          normalizedCategory === "all"
+            ? allGifts
+            : allGifts.filter(
+                (gift) =>
+                  gift.category.trim().toLowerCase() === normalizedCategory
+              );
 
         if (filteredGifts.length === 0) {
-            giftList.innerHTML = `<div class="no-gifts">No gifts found for this category.</div>`;
-            return;
+          giftList.innerHTML = `<div class="no-gifts">No gifts found for this category.</div>`;
+          return;
         }
 
-        console.log({ category, filteredGifts });
+        // console.log({ category, filteredGifts });
 
-        filteredGifts.forEach(gift => {
-          const giftDiv = document.createElement('div');
-          giftDiv.classList.add('gift');
+        filteredGifts.forEach((gift) => {
+          const giftDiv = document.createElement("div");
+          giftDiv.classList.add("gift");
 
           // Fetch category-specific properties
           const categoryInfo = categoryConfig[gift.category];
@@ -90,63 +104,68 @@ document.addEventListener("DOMContentLoaded", () => {
             modalName.innerText = gift.name;
             modalDescription.innerText = gift.description;
 
-             // Clear previous superpowers
-             modalSuperpowersContainer.innerHTML = "";
+            // Clear previous superpowers
+            modalSuperpowersContainer.innerHTML = "";
 
-             // Add superpowers dynamically
-             Object.entries(gift.superpowers).forEach(([key, value]) => {
-                 const superpowerDiv = document.createElement("div");
-                 superpowerDiv.classList.add("modal-superpower");
+            // Add superpowers dynamically
+            Object.entries(gift.superpowers).forEach(([key, value]) => {
+              const superpowerDiv = document.createElement("div");
+              superpowerDiv.classList.add("modal-superpower");
 
-                 // Parse the numeric value
-                 const numericValue = parseInt(value.replace("+", ""), 10);
-                 const snowflakeCount = Math.floor(numericValue / 100);
+              // Parse the numeric value
+              const numericValue = parseInt(value.replace("+", ""), 10);
+              const snowflakeCount = Math.floor(numericValue / 100);
 
-                 // Create snowflake images
-                 const snowflakes = Array.from({ length: snowflakeCount }, () =>
-                     `<img src="./images/snowflake.png" alt="Snowflake" width="16" height="16">`
-                 ).join("");
+              // Create snowflake images
+              const snowflakes = Array.from({ length: 5 }, (_, index) => {
+                // Check if this is one of the counted snowflakes or not
+                const opacity = index < snowflakeCount ? 1 : 0.15;
+                return `<img src="./images/snowflake.png" alt="Snowflake" width="16" height="16" style="opacity: ${opacity};">`;
+              }).join("");
 
-                 // Add content to the superpower div
-                 superpowerDiv.innerHTML = `
-                     <div class="key">${key.charAt(0).toUpperCase() + key.slice(1)}</div>
+              // Add content to the superpower div
+              superpowerDiv.innerHTML = `
+                     <div class="key">${
+                       key.charAt(0).toUpperCase() + key.slice(1)
+                     }</div>
                      <div class="value">${value}</div>
                      <div class="snowflakes">${snowflakes}</div>
                  `;
 
-                 modalSuperpowersContainer.appendChild(superpowerDiv);
-             });
+              modalSuperpowersContainer.appendChild(superpowerDiv);
+            });
 
             modalOverlay.style.display = "flex";
             // Disable scroll
             document.body.style.overflow = "hidden";
+          });
         });
-      });  
-    };
+      };
 
-    // Render all gifts initially
-    renderGifts("All");
+      // Render all gifts initially
+      renderGifts("All");
 
-    // Add event listeners for category filtering
-    categoryTitles.forEach(title => {
+      // Add event listeners for category filtering
+      categoryTitles.forEach((title) => {
         title.addEventListener("click", () => {
-            categoryTitles.forEach(t => t.classList.remove("active")); // Remove active class
-            title.classList.add("active"); // Add active class to clicked category
-            renderGifts(title.textContent.trim());// Render gifts based on category
+          categoryTitles.forEach((t) => t.classList.remove("active")); // Remove active class
+          title.classList.add("active"); // Add active class to clicked category
+          renderGifts(title.textContent.trim()); // Render gifts based on category
         });
+      });
     });
-});
-     // Close modal functionality
-     const closeModal = () => {
-        modalOverlay.style.display = "none";
-        // Enable scroll
-        document.body.style.overflow = "auto";
-        };
-        
-        modalClose.addEventListener("click", closeModal);
-        modalOverlay.addEventListener("click", event => {
-            if (event.target === modalOverlay) {
-                closeModal();
-            }
-    });
+
+  // Close modal functionality
+  const closeModal = () => {
+    modalOverlay.style.display = "none";
+    // Enable scroll
+    document.body.style.overflow = "auto";
+  };
+
+  modalClose.addEventListener("click", closeModal);
+  modalOverlay.addEventListener("click", (event) => {
+    if (event.target === modalOverlay) {
+      closeModal();
+    }
+  });
 });
