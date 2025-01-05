@@ -23,10 +23,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Close menu when clicking the modal trigger
+  if (modalTrigger) {
   modalTrigger.addEventListener("click", () => {
     burgerIcon.classList.remove("open");
     menuOverlay.classList.remove("open");
     burgerIcon.setAttribute("aria-expanded", false);
     document.body.style.overflow = "";
   });
+  }
 });
