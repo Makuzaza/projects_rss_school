@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const burgerIcon = document.querySelector(".burger-icon");
   const menuOverlay = document.querySelector(".menu-overlay");
   const menuLinks = document.querySelectorAll(".mobile-nav a");
+  const modalTrigger = document.querySelector(".mobile-nav span");
 
   // Toggle menu
   burgerIcon.addEventListener("click", () => {
@@ -19,5 +20,13 @@ document.addEventListener("DOMContentLoaded", () => {
       burgerIcon.setAttribute("aria-expanded", false);
       document.body.style.overflow = "";
     });
+  });
+
+  // Close menu when clicking the modal trigger
+  modalTrigger.addEventListener("click", () => {
+    burgerIcon.classList.remove("open");
+    menuOverlay.classList.remove("open");
+    burgerIcon.setAttribute("aria-expanded", false);
+    document.body.style.overflow = "";
   });
 });

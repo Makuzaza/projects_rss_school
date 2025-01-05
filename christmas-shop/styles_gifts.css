@@ -108,12 +108,12 @@ body {
   text-align: center;
 }
 
-.mobile-nav a {
-  color: white;
+.mobile-nav a, .mobile-nav span {
   font-size: 24px;
   font-weight: 600;
   letter-spacing: 3.5px;
   text-decoration: none;
+  cursor: pointer;
 }
 
 main {
