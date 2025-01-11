@@ -1,5 +1,3 @@
-https://rolling-scopes-school.github.io/makuzaza-JSFEEN2024Q4/hangman/
-
 # Hangman Game
 
 A fun and interactive Hangman game built with JavaScript, HTML, and CSS.
@@ -56,6 +54,26 @@ project/
 ### JavaScript Modules
 - **`game.js`**: Contains the main game logic, including question generation, letter handling, and game state updates.
 - **`helpers.js`**: Includes reusable utility functions for validating input, updating the UI, and managing the gallows display.
+
+---
+
+## Future Improvements
+- Add a difficulty setting for varying word lengths.
+- Include a timer for added challenge.
+- Allow custom questions and answers.
+- Enhance visual and audio feedback for correct and incorrect guesses.
+
+---
+
+## License
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+## Credits
+- Images: Free assets from [Unsplash](https://unsplash.com/) and [Pixabay](https://pixabay.com/).
+- Icons: [FontAwesome](https://fontawesome.com/).
+- Inspiration: Classic Hangman game.
 
 ---
 
