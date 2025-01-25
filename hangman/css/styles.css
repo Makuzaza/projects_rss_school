@@ -6,6 +6,11 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-image: radial-gradient(rgba(244, 242, 242, 0.9), rgba(32, 32, 32, 0.229)), url("../img/back1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat; 
 }
 
 #container {
@@ -16,6 +21,8 @@ body {
   padding: 20px;
   border: solid 1px black;
   border-radius: 10px;
+  background-color: white; 
+  box-shadow: 0 0 10px rgba(0, 0, 0);
 }
 
 /* Styles for the gallows container */
