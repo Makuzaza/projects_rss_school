@@ -25,10 +25,10 @@ A fun and interactive Hangman game built with JavaScript, HTML, and CSS.
 ```
 project/
 |-- index.html           // Main HTML file
-|-- style.css            // Stylesheet for the game
-|-- game.js              // Main game logic
-|-- helpers.js           // Helper functions
-|-- assets/              // Images for the gallows
+|-- css/
+|   |-- style.css        // Stylesheet for the game
+|-- app.js               // Main game logic
+|-- img/                 // Images for the gallows
 |-- README.md            // Documentation
 ```
 
@@ -54,8 +54,15 @@ project/
 - A modern browser for testing.
 
 ### JavaScript Modules
-- **`game.js`**: Contains the main game logic, including question generation, letter handling, and game state updates.
-- **`helpers.js`**: Includes reusable utility functions for validating input, updating the UI, and managing the gallows display.
+- **`app.js`**: Contains the main game logic, including question generation, letter handling, and game state updates, reusable utility functions for validating input, updating the UI, and managing the gallows display.
+
+---
+
+## Future Improvements
+- Add a difficulty setting for varying word lengths.
+- Include a timer for added challenge.
+- Allow custom questions and answers.
+- Enhance visual and audio feedback for correct and incorrect guesses.
 
 ---
 
