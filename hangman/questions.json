@@ -1,43 +1,150 @@
 [
-    {
-      "question": "A device used to transmit sound over long distances.",
-      "answer": "telephone"
-    },
-    {
-      "question": "A vehicle with two wheels powered by pedals.",
-      "answer": "bicycle"
-    },
-    {
-      "question": "A large natural satellite that orbits Earth.",
-      "answer": "moon"
-    },
-    {
-      "question": "The red planet in our solar system.",
-      "answer": "mars"
-    },
-    {
-      "question": "A common farm animal that produces milk.",
-      "answer": "cow"
-    },
-    {
-      "question": "A tool used to write or draw on paper.",
-      "answer": "pencil"
-    },
-    {
-      "question": "The liquid that falls from the sky during rain.",
-      "answer": "water"
-    },
-    {
-      "question": "The planet we live on.",
-      "answer": "earth"
-    },
-    {
-      "question": "A flying mammal known for its echolocation abilities.",
-      "answer": "bat"
-    },
-    {
-      "question": "A sweet substance made by bees.",
-      "answer": "honey"
-    }
-  ]
-  
+  {
+    "question": "A device used to transmit sound over long distances.",
+    "answer": "telephone"
+  },
+  {
+    "question": "A vehicle with two wheels powered by pedals.",
+    "answer": "bicycle"
+  },
+  {
+    "question": "A large natural satellite that orbits Earth.",
+    "answer": "moon"
+  },
+  {
+    "question": "The red planet in our solar system.",
+    "answer": "mars"
+  },
+  {
+    "question": "A common farm animal that produces milk.",
+    "answer": "cow"
+  },
+  {
+    "question": "A tool used to write or draw on paper.",
+    "answer": "pencil"
+  },
+  {
+    "question": "The liquid that falls from the sky during rain.",
+    "answer": "water"
+  },
+  {
+    "question": "The planet we live on.",
+    "answer": "earth"
+  },
+  {
+    "question": "A flying mammal known for its echolocation abilities.",
+    "answer": "bat"
+  },
+  {
+    "question": "A sweet substance made by bees.",
+    "answer": "honey"
+  },
+  {
+    "question": "A complicated network of paths or passages.",
+    "answer": "labyrinth"
+  },
+  {
+    "question": "A feeling or state of intense excitement and happiness.",
+    "answer": "euphoria"
+  },
+  {
+    "question": "A harsh, discordant mixture of sounds.",
+    "answer": "cacophony"
+  },
+  {
+    "question": "A typical example or pattern of something.",
+    "answer": "paradigm"
+  },
+  {
+    "question": "The time at which something is most powerful or successful.",
+    "answer": "zenith"
+  },
+  {
+    "question": "The emission of light by a substance that has not been heated.",
+    "answer": "luminescence"
+  },
+  {
+    "question": "Persistence in doing something despite difficulty or delay in achieving success.",
+    "answer": "perseverance"
+  },
+  {
+    "question": "A large sea wave caused by an underwater earthquake.",
+    "answer": "tsunami"
+  },
+  {
+    "question": "A building where historical objects are displayed.",
+    "answer": "museum"
+  },
+  {
+    "question": "A celebration or ceremony marking a special event.",
+    "answer": "festival"
+  },
+  {
+    "question": "A type of tree that produces acorns.",
+    "answer": "oak"
+  },
+  {
+    "question": "A bird known for its colorful feathers and mimicking ability.",
+    "answer": "parrot"
+  },
+  {
+    "question": "A person who travels to discover new places.",
+    "answer": "explorer"
+  },
+  {
+    "question": "A natural underground chamber in the earth.",
+    "answer": "cave"
+  },
+  {
+    "question": "A green vegetable often used in salads.",
+    "answer": "lettuce"
+  },
+  {
+    "question": "A person trained to fly an aircraft.",
+    "answer": "pilot"
+  },
+  {
+    "question": "A vehicle designed to travel in space.",
+    "answer": "rocket"
+  },
+  {
+    "question": "A season characterized by falling leaves.",
+    "answer": "autumn"
+  },
+  {
+    "question": "A yellow fruit with a curved shape.",
+    "answer": "banana"
+  },
+  {
+    "question": "A tool used for cutting paper.",
+    "answer": "scissors"
+  },
+  {
+    "question": "A person who works in a library.",
+    "answer": "librarian"
+  },
+  {
+    "question": "A place where animals are kept for public viewing.",
+    "answer": "zoo"
+  },
+  {
+    "question": "A person who writes books or stories.",
+    "answer": "author"
+  },
+  {
+    "question": "A protective layer of skin on the top of the body.",
+    "answer": "epidermis"
+  },
+  {
+    "question": "A device that shows time.",
+    "answer": "clock"
+  },
+  {
+    "question": "A color made by mixing blue and yellow.",
+    "answer": "green"
+  },
+  {
+    "question": "A structure that connects two places over a river.",
+    "answer": "bridge"
+  }
+]
