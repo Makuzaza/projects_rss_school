@@ -1,7 +1,7 @@
 body {
   font-family: Arial, sans-serif;
   text-align: center;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -316,15 +316,15 @@ button:enabled:hover {
 }
 
 @media screen and (max-width: 768px) {
-    #word-display {
-       margin-top: 0;
-    }
+  #word-display {
+    margin-top: 0;
+  }
 
-    #game-name {
-        margin-top: 10px;
-        margin-bottom: 0;
-    }
-    
+  #game-name {
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+
   #container {
     display: flex;
     flex-direction: column;
@@ -349,8 +349,8 @@ button:enabled:hover {
 }
 
 @media screen and (max-width: 400px) {
-    #modal {
-        width: 300px;
-        height: 200px;
-    }
+  #modal {
+    width: 300px;
+    height: 200px;
+  }
 }
