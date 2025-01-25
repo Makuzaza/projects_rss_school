@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Attempts left
     const attemptsDisplay = document.createElement("div");
     attemptsDisplay.id = "attempts";
-    attemptsDisplay.innerHTML = `Attempts left: <span class="attempts-left">${attemptsLeft}/6</span>`;
+    attemptsDisplay.innerHTML = `Incorrect guesses: <span class="attempts-left">${attemptsLeft}/6</span>`;
     rightColumn.appendChild(attemptsDisplay);
 
     // Keyboard
@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Start the game
   function startGame() {
     guessedLetters.clear();
-    attemptsLeft = 6;
+    attemptsLeft = 0;
     gameEnded = false;
     selectRandomQuestion();
     createGameUI();
@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Handle guesses
   function handleGuess(letter) {
-    if (guessedLetters.has(letter) || attemptsLeft === 0) return;
+    if (guessedLetters.has(letter) || attemptsLeft === 6) return;
 
     guessedLetters.add(letter);
     document.getElementById(`key-${letter}`).disabled = true;
@@ -145,12 +145,12 @@ document.addEventListener("DOMContentLoaded", () => {
         endGame(true);
       }
     } else {
-      attemptsLeft--;
+      attemptsLeft++;
       updateGallows();
       document.getElementById(
         "attempts"
-      ).innerHTML = `Attempts left: <span class="attempts-left">${attemptsLeft}/6</span>`;
-      if (attemptsLeft === 0) {
+      ).innerHTML = `Incorrect guesses: <span class="attempts-left">${attemptsLeft}/6</span>`;
+      if (attemptsLeft === 6) {
         endGame(false);
       }
     }
@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const hangman = document.getElementById("hangman");
     hangman.innerHTML = `Head Body LeftArm RightArm LeftLeg RightLeg`
       .split(" ")
-      .slice(0, 6 - attemptsLeft)
+      .slice(0, attemptsLeft)
       .map((part) => `<div class='${part}'></div>`)
       .join("");
   }
