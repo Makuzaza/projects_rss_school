@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const selected = questions[randomIndex];
     // console.log("Selected question:", selected);
     word = selected.answer.toLowerCase();
-    // console.log("Word:", word);
+    console.log("Word:", word);
     hint = selected.question;
     // console.log("Hint:", hint);
   }
@@ -227,7 +227,5 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Initialize
-  fetchQuestions().then(() => {
-    startGame();
-  });
+  fetchQuestions();
 });
