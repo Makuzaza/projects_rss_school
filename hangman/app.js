@@ -197,34 +197,49 @@ document.addEventListener("DOMContentLoaded", () => {
       .every((letter) => guessedLetters.has(letter.toUpperCase()));
   }
 
-  // End game
-  function endGame(win) {
-    gameEnded = true;
-    document.removeEventListener("keydown", handlePhysicalKey);
+ // End game
+function endGame(win) {
+  gameEnded = true;
+  document.removeEventListener("keydown", handlePhysicalKey);
 
-    // Create modal
-    const modal = document.createElement("div");
-    modal.id = "modal";
-    modal.innerHTML = `
-  <div id="modal-content">
-    <h2>${win ? "You WON!" : "You lost! Try again"}</h2>
-    <p>The word was "${word.toLocaleUpperCase()}".</p>
-    <button id="close-modal">Play again</button>
-  </div>
-`;
-    body.appendChild(modal);
+  // Create modal
+  const modal = document.createElement("div");
+  modal.id = "modal";
+  modal.innerHTML = `
+    <div id="modal-content">
+      <h2>${win ? "You WON!" : "You lost! Try again"}</h2>
+      <p>The word was "${word.toUpperCase()}".</p>
+      <button id="close-modal">Play again</button>
+    </div>
+  `;
+  body.appendChild(modal);
 
-    // Add close modal functionality
-    document.getElementById("close-modal").addEventListener("click", () => {
-      modal.remove();
-      startGame(); // Restart the game
-    });
+  // Add close modal functionality
+  const playAgainButton = document.getElementById("close-modal");
+  playAgainButton.addEventListener("click", restartGame);
 
-    // Add overlay for the modal
-    const overlay = document.createElement("div");
-    overlay.id = "overlay";
-    body.appendChild(overlay);
+  // Add overlay for the modal
+  const overlay = document.createElement("div");
+  overlay.id = "overlay";
+  body.appendChild(overlay);
+
+  // Add event listener for physical keyboard
+  function handleModalKey(event) {
+    if (event.key === "Enter" || event.key === " ") {
+      restartGame();
+    }
   }
+
+  document.addEventListener("keydown", handleModalKey);
+
+  // Restart game function
+  function restartGame() {
+    modal.remove();
+    overlay.remove();
+    document.removeEventListener("keydown", handleModalKey);
+    startGame(); // Restart the game
+  }
+}
 
   // Initialize
   fetchQuestions();
