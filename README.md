@@ -4,7 +4,7 @@
 
 Here is my result of the course: Passed
 
-![certificate](image.png)
+![certificate](certificate.png)
 
 Feedback: 
 
@@ -13,7 +13,6 @@ Feedback:
 Here is my result of the course: In process
 
 Feedback: 
- 
 
 ## Reflections
 
