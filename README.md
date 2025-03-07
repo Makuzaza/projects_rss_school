@@ -4,6 +4,8 @@
 
 Here is my result of the course: Passed
 
+![certificate](image.png)
+
 Feedback: 
 
 ## Course 'Learn TypeScript step by step in an interactive environment'
