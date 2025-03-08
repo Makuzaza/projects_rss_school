@@ -2,7 +2,7 @@
 
 ## Course 'Beginner's TypeScript'
 
-Here is my result of the course: Passed
+<b>Here is my result of the course: Passed</b>
 
 ![certificate](certificate.png)
 
@@ -34,7 +34,7 @@ The course is well-structured, covering essential TypeScript concepts with detai
 
 ## Course 'Learn TypeScript step by step in an interactive environment'
 
-Here is my result of the course: Passed the free-trial part
+<b>Here is my result of the course: Passed the free-trial part</b> 
 
 ![achievements](achievements.png)
 ![course](course.png)
