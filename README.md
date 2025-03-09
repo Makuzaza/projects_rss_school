@@ -37,8 +37,7 @@ The course is well-structured, covering essential TypeScript concepts with detai
 <b>Here is my result of the course: Passed the free-trial part</b> 
 
 ![course](course.png)
-![achievements](achievements.png)
-
+![achievements](achievement.png)
 
 ### Result
 I completed the free sections of the course (7 chapters). Unfortunately, the remaining parts require payment, which I was unable to proceed with.
