@@ -4,7 +4,7 @@
 
 <b>Here is my result of the course: Passed</b>
 
-![certificate](certificate.png)
+[![certificate](certificate.png)](https://res.cloudinary.com/total-typescript/image/upload/v1741521993/certificate/b9240075-1722-4dc1-8450-d1b86055e9de/beginners-typescript.png)
 
 ### Result
 I successfully completed the entire course and obtained a certificate.
