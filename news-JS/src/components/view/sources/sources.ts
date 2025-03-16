@@ -6,6 +6,12 @@ export interface Source {
 }
 
 export default class Sources {
+    private wheelEventListener: ((event: WheelEvent) => void) | null = null;
+
+    constructor() {
+        this.wheelEventListener = null;
+    }
+
     public draw(data: ReadonlyArray<Source>): void {
         const fragment = document.createDocumentFragment();
         const sourceItemTemp = document.querySelector<HTMLTemplateElement>('#sourceItemTemp');
@@ -31,8 +37,34 @@ export default class Sources {
         const sourcesContainer = document.querySelector('.sources');
         if (sourcesContainer) {
             sourcesContainer.append(fragment);
+
+            this.updateWheelEventListener(sourcesContainer as HTMLElement);
+
+            window.addEventListener('resize', () => {
+                this.updateWheelEventListener(sourcesContainer as HTMLElement);
+            });
         } else {
             console.error('Container .sources not found');
+        }
+    }
+
+    private updateWheelEventListener(sourcesContainer: HTMLElement): void {
+        if (window.innerWidth > 640) {
+            if (!this.wheelEventListener) {
+                this.wheelEventListener = (event: WheelEvent) => {
+                    event.preventDefault(); 
+                    sourcesContainer.scrollBy({
+                        left: event.deltaY * 7,
+                        behavior: 'smooth'
+                    });
+                };
+                sourcesContainer.addEventListener('wheel', this.wheelEventListener);
+            }
+        } else {
+            if (this.wheelEventListener) {
+                sourcesContainer.removeEventListener('wheel', this.wheelEventListener);
+                this.wheelEventListener = null;
+            }
         }
     }
 }
