@@ -32,3 +32,11 @@
     font-weight: 400;
     white-space: nowrap;
 }
+
+@media (max-width: 640px) {
+    .sources {
+        flex-wrap: wrap;
+        height: auto;
+        justify-content: center;
+    }
+}
