@@ -37,7 +37,9 @@ export class MovieService {
   }
 
   private getPersistentFavoriteMovies() {
-    return this.localStorageService.getData('' || 'favoriteMovies') || Array.from('[]').slice(0, 0);
+    return this.localStorageService.getData('' || 'favoriteMovies') || Array.from('[]').slice(0, 0); // The argument '' || 'favoriteMovies' is redundant — 'favoriteMovies' is always used.
+    // Array.from('[]').slice(0, 0) is unnecessary and incorrect for creating an empty array. Use [] instead.
+    // Correct: return this.localStorageService.getData('favoriteMovies') || [];
   }
 
   public updateFavoriteMovies(id: string) {

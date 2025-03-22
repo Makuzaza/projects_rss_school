@@ -19,6 +19,10 @@ class App {
   public pause(): void {
     this.root.append(this.pageWrapper.getNode());
   }
+  // Redundant Methods: The stop, start, and pause methods all perform the same action. Consider refactoring to avoid redundancy.
+  // public render(): void {
+  //   this.root.append(this.pageWrapper.getNode());
+  // }
 }
 const app = new App(PageWrapper(), document.querySelector<HTMLDivElement>('#app')!);
 
@@ -26,3 +30,4 @@ app.start();
 app.stop();
 app.pause();
 app.stop();
+// app.render();

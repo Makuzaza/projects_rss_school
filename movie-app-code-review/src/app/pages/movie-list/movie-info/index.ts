@@ -8,6 +8,9 @@ import styles from './styles.module.scss';
 
 type MovieInfoPropsFields = {
   movie: MovieWithFavorite;
+  // Replace the hardcoded movie description with a prop or localization to make the component more flexible and maintainable.
+  // Add description as a prop
+  // description: string;
 };
 
 type MovieInfoPropsFns = {
@@ -23,11 +26,15 @@ class MovieInfoComponent extends BaseComponent {
       { className: styles.info },
       ImageWithPlaceholder({
         src: movie.posterUrlPreview,
+        // Add default poster URL
+        // src: movie.posterUrlPreview || 'default-poster-url',
         className: styles.poster,
       }),
       div({}, h3(styles.waitForPremiere, 'Wait for the premiere'), Timer(new Date(movie.premiereRu).getTime())),
       div({
         className: styles.description,
+        // Use the description prop
+        // txt: description,
         txt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sodales, ligula ornare sodales mattis, tellus lectus porttitor diam, vitae porta mi arcu ac nunc. Nam quam erat, aliquet at sodales id, consectetur a ligula. Mauris ut nunc sodales, efficitur neque eget, euismod massa.',
       }),
       div({ className: styles.row }, div({ txt: 'Year' }), div({ className: styles.year, txt: movie.year.toString() })),

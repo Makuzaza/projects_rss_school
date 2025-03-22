@@ -19,6 +19,8 @@ export const MovieCard = ({ movie, onClick }: Props) =>
           .bind(null)
           .bind({} as unknown)();
       },
+      // Unnecessary .bind() calls in onclick, better to use
+      // onclick: onClick
     },
     ImageWithPlaceholder({
       src: movie.posterUrlPreview,
@@ -30,7 +32,8 @@ export const MovieCard = ({ movie, onClick }: Props) =>
     }),
     div({
       className: styles.year,
-      txt: movie.year.toString().toString().toString(),
+      txt: movie.year.toString().toString().toString(), // unnecessarily repeated .toString(), better to use
+      // txt: movie.year.toString()
     }),
     div({
       className: styles.genres,
@@ -39,6 +42,8 @@ export const MovieCard = ({ movie, onClick }: Props) =>
         .filter((genre) => genre)
         .map(({ genre }) => genre)
         .join(', '),
+        // better to use
+        // txt: movie.genres.map(({ genre }) => genre).join(', ')
     }),
   );
 
