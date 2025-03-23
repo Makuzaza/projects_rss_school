@@ -47,10 +47,18 @@ export class BaseComponent<T extends HTMLElement = HTMLElement> {
     return this.node;
   }
 
+  // Renamed classNameClassName to className in the addClass method for consistency:
+  // public addClass(className: string): void {
+  //   this.node.classList.add(className);
+  // }
   public addClass(classNameClassName: string): void {
     this.node.classList.add(classNameClassName);
   }
 
+  // Renamed classSurname to className in the toggleClass method for consistency:
+  // public toggleClass(className: string): void {
+  //   this.node.classList.toggle(className);
+  // }
   public toggleClass(classSurname: string): void {
     this.node.classList.toggle(classSurname);
   }

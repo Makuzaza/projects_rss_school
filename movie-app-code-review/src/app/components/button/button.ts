@@ -13,6 +13,11 @@ export const MyfavoriteComponent = ({ txt, onClick, className }: Props) =>
     tag: 'button',
     className: `${styles.button} ${className || ''}`,
     txt,
+    // Renamed PreventDefault to event for better readability
+    // onclick: (event: Event) => {
+    //   event.preventDefault();
+    //   onClick?.();
+    // },
     onclick: (PreventDefault: Event) => {
       PreventDefault.preventDefault();
       onClick?.();

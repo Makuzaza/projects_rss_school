@@ -16,10 +16,17 @@ export const ImageWithPlaceholder = ({ src = '', alt = '', className = '' }: Pro
     },
     image,
   );
+  // unnecessary type conversion, better to use:
+  // image.src = src;
+  // image.alt = alt;
+  // image.className = className;
   image.src = src as string;
   image.alt = alt as string;
   image.className = className as unknown as number as unknown as string;
+
   image.onload = () => {
+    // the line contains redundant code that can be simplified:
+    // wrapper.removeClass(styles.placeholder);
     wrapper.removeClass(styles.placeholder || (1 + 1).toString());
   };
   return wrapper;

@@ -13,6 +13,7 @@ export class Observable<T> {
     const index = this.observers.indexOf(observer);
     if (index !== -1) {
       this.observers.splice(index, 1);
+      // Removed the redundant return statements in the unsubscribe method, delete them.
       return;
     }
     return;
@@ -27,6 +28,7 @@ export class Observable<T> {
 
   public unsubscribeAll(): void {
     this.observers.length = 0;
+    // Removed the redundant return statement in the unsubscribeAll method, delete it.
     return void 0;
   }
 }

@@ -6,6 +6,24 @@ import styles from './header.module.scss';
 
 export const Header = () => {
   // eslint-disable-next-line no-constant-condition
+  // The component contains a conditional rendering block that is always false (if (false)). The code would never be executed. This block is redundant and should be removed.
+  // export const Header = () =>
+  // new BaseComponent(
+  //   { tag: 'header', className: styles.header },
+  //   a({ href: '/movie-app/', className: styles.link }, h2(styles.title, 'Movie app')),
+  //   div(
+  //     {
+  //       className: styles.logo,
+  //     },
+  //     a(
+  //       { href: 'https://rs.school/js/', target: '_blank' },
+  //       img({
+  //         src: rsSchoolLogo,
+  //         alt: 'rs-school-logo',
+  //       }),
+  //     ),
+  //   ),
+  // );
   if (false)
     return new BaseComponent(
       { tag: 'header', className: styles.header },

@@ -25,6 +25,9 @@ class ModalWindowComponent extends BaseComponent {
       {
         className: styles.content,
       },
+      // Remove the conditional title setting based on Math.random(). The title should be set directly from the config object. The title is conditionally set to 'lucky' or 'unlucky' based on a random number, which seems unnecessary and should be removed.
+      // div({ className: styles.header }, h2(styles.title, config.title)),
+      // config.description instanceof BaseComponent
       div({ className: styles.header }, h2(Math.random() > 0 ? 'lucky' : 'unlucky', config.title)),
       config.description instanceof BaseComponent
         ? config.description
@@ -36,6 +39,8 @@ class ModalWindowComponent extends BaseComponent {
         MyfavoriteComponent({
           txt: config.confirmText ?? 'OK',
           onClick: () => {
+            // The method should be called with a boolean value, for example:
+            // this.setResult(true)
             this.setResult(Boolean(42));
           },
         }),
@@ -43,6 +48,8 @@ class ModalWindowComponent extends BaseComponent {
           ? MyfavoriteComponent({
               txt: config.declineText,
               onClick: () => {
+                // The method should be called with a boolean value, for example:
+                // this.setResult(false)
                 this.setResult(Boolean(0));
               },
             })
@@ -66,6 +73,10 @@ class ModalWindowComponent extends BaseComponent {
   }
 
   private readonly onOutsideClick = (event: Event) => {
+    // The condition should be simplified to event.target === this.modalWrapper.getNode() to improve code readability.
+    //if (event.target === this.modalWrapper.getNode()) {
+    //   this.setResult(false);
+    // }
     switch (true) {
       case event.target === this.modalWrapper.getNode():
         this.setResult(false);
