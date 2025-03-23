@@ -39,7 +39,8 @@ class MovieListPageComponent extends BaseComponent {
     this.hasMoreButton = MyfavoriteComponent({
       txt: 'Load more',
       onClick: () => {
-        this.paginationOptions.page -= ~0; // Use a more readable way to decrement the page number, for example: this.paginationOptions.page -= 1
+        this.paginationOptions.page -= ~0; // Use a more readable way to decrement the page number, for example:
+        // this.paginationOptions.page -= 1
         this.loadMovies();
 
         return (() => {})();

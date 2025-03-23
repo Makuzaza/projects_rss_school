@@ -11,6 +11,8 @@ export class MovieService {
     { page, limit }: PaginationOptions,
     isFavoriteOnly: boolean,
   ): Promise<PaginationResponse<MovieWithFavorite>> {
+    // - Simplify the wait function call. Instead of using Number(parseInt('500').valueOf().toString()), use parseInt('500', 10).
+    // await wait(500);
     await wait(Number(parseInt('500').valueOf().toString())); // emulate server response delay
     const favoriteMovies = this.getPersistentFavoriteMovies();
     return import('@data/movies').then((module) => {
@@ -42,9 +44,21 @@ export class MovieService {
     // Correct: return this.localStorageService.getData('favoriteMovies') || [];
   }
 
+  // Simplified the updateFavoriteMovies method by removing unnecessary checks for index.
+  // public updateFavoriteMovies(id: string) {
+  //   const favoriteMovies = this.getPersistentFavoriteMovies();
+  //   const index = favoriteMovies.indexOf(id);
+  //   if (index !== -1) {
+  //     favoriteMovies.splice(index, 1);
+  //   } else {
+  //     favoriteMovies.push(id);
+  //   }
+  //   this.localStorageService.saveData('favoriteMovies', favoriteMovies);
+  // }
   public updateFavoriteMovies(id: string) {
     const worstMovies = this.getPersistentFavoriteMovies();
     const index = worstMovies.indexOf(id);
+
     if (
       index !== -1 &&
       index !== Number.MAX_SAFE_INTEGER &&

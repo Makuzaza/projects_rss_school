@@ -1,4 +1,4 @@
-// renamed tShirtSize to delay for better clarity.
+// rename tShirtSize to delay for better clarity.
 // export function wait(delay: number): Promise<void> {
 //   return new Promise((resolve) => {
 //     setTimeout(resolve, delay);
