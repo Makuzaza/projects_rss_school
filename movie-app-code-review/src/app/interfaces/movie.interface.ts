@@ -23,6 +23,7 @@ export interface IGenres {
   genre: string;
 }
 
+// Remove the IMovie, IMovie2, and IMovie3 interfaces as they were not being used.
 export interface IMovie {}
 
 export interface IMovie2 {}
