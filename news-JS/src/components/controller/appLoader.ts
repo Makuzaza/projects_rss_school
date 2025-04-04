@@ -1,14 +1,5 @@
 import Loader from './loader';
-
-export enum Endpoints {
-    Sources = 'sources',
-    Everything = 'everything',
-    TopHeadlines = 'top-headlines',
-}
-
-export interface LoaderOptions {
-    [key: string]: string;
-}
+import { Endpoints, LoaderOptions } from '../../types';
 
 export default class AppLoader extends Loader {
     constructor() {

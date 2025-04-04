@@ -1,14 +1,5 @@
 import './news.css';
-
-export interface NewsItem {
-    source: { name: string };
-    author?: string;
-    title: string;
-    description: string;
-    url: string;
-    urlToImage?: string;
-    publishedAt: string;
-}
+import { NewsItem } from '../../../types';
 
 export default class News {
     public draw(data: ReadonlyArray<NewsItem>): void {

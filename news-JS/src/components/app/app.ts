@@ -11,7 +11,7 @@ class App {
     }
 
     public start(): void {
-        const sourcesElement = document.querySelector('.sources');
+        const sourcesElement: HTMLElement | null = document.querySelector('.sources');
         if (sourcesElement) {
             sourcesElement.addEventListener('click', (e: Event) => {
                 this.controller.getNews(e, (data) => this.view.drawNews(data));

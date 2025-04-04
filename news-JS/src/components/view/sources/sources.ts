@@ -1,9 +1,5 @@
 import './sources.css';
-
-export interface Source {
-    id: string;
-    name: string;
-}
+import { Source } from '../../../types';
 
 export default class Sources {
     private wheelEventListener: ((event: WheelEvent) => void) | null = null;

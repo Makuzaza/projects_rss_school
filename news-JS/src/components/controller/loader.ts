@@ -1,14 +1,4 @@
-export type HttpMethod = 'GET' | 'POST';
-
-export interface LoaderOptions {
-    [key: string]: string;
-}
-
-export enum Endpoints {
-    Sources = 'sources',
-    Everything = 'everything',
-    TopHeadlines = 'top-headlines',
-}
+import { HttpMethod, LoaderOptions, Endpoints } from '../../types';
 
 export default class Loader {
     protected baseLink: string;
@@ -47,9 +37,9 @@ export default class Loader {
         options: LoaderOptions = {}
     ): void {
         fetch(this.makeUrl(options, endpoint), { method })
-            .then(this.errorHandler)
-            .then((res) => res.json())
+            .then((res: Response) => this.errorHandler(res))
+            .then((res: Response) => res.json())
             .then((data: T) => callback(data))
-            .catch((err) => console.error(err));
+            .catch((err: Error) => console.error(err)); 
     }
 }

@@ -1,37 +1,5 @@
 import AppLoader from './appLoader';
-
-export enum Endpoints {
-    Sources = 'sources',
-    Everything = 'everything',
-    TopHeadlines = 'top-headlines',
-}
-
-export interface NewsItem {
-    source: { name: string };
-    author?: string;
-    title: string;
-    description: string;
-    url: string;
-    urlToImage?: string;
-    publishedAt: string;
-}
-
-export type NewsResponse = {
-    articles: ReadonlyArray<NewsItem>;
-};
-
-export interface LoaderOptions {
-    [key: string]: string;
-}
-
-export interface Source {
-    id: string;
-    name: string;
-}
-
-export type SourcesResponse = {
-    sources: ReadonlyArray<Source>;
-};
+import { Endpoints, LoaderOptions, NewsResponse, SourcesResponse } from '../../types';
 
 export default class AppController extends AppLoader {
     public getSources(callback: (data: SourcesResponse) => void): void {
@@ -40,21 +8,21 @@ export default class AppController extends AppLoader {
 
     public getNews(e: Event, callback: (data: NewsResponse) => void): void {
         let target = e.target as HTMLElement;
-        const newsContainer = e.currentTarget as HTMLElement;
+        const newsContainer: HTMLElement = e.currentTarget as HTMLElement;
 
         while (target !== newsContainer && target !== null) {
             if (target.classList.contains('source__item')) {
-                const sourceId = target.getAttribute('data-source-id') || '';
+                const sourceId: string = target.getAttribute('data-source-id') || '';
                 if (newsContainer.getAttribute('data-source') !== sourceId) {
                     newsContainer.setAttribute('data-source', sourceId);
 
-                    const query = target.getAttribute('data-query') || sourceId;
-                    const from = target.getAttribute('data-from');
-                    const to = target.getAttribute('data-to');
-                    const sortBy = target.getAttribute('data-sortby');
-                    const country = target.getAttribute('data-country');
-                    const category = target.getAttribute('data-category');
-                    const endpointAttr = target.getAttribute('data-endpoint') || Endpoints.Everything;
+                    const query: string = target.getAttribute('data-query') || sourceId;
+                    const from: string | null = target.getAttribute('data-from');
+                    const to: string | null = target.getAttribute('data-to');
+                    const sortBy: string | null = target.getAttribute('data-sortby');
+                    const country: string | null = target.getAttribute('data-country');
+                    const category: string | null = target.getAttribute('data-category');
+                    const endpointAttr: string = target.getAttribute('data-endpoint') || Endpoints.Everything;
 
                     const options: LoaderOptions = { q: query };
                     if (from) options.from = from;
