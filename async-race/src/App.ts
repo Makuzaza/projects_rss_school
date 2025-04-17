@@ -1,11 +1,24 @@
 import './App.css';
+import { CarForm } from './components/carForm';
+import { CarList } from './components/carList';
 
 export class App {
+    private carList: CarList;
+
+    constructor() {
+      this.carList = new CarList();
+    }
+
     render(): HTMLElement {
       const container = document.createElement('div');
       container.className = 'app-container';
-  
+      
       container.appendChild(this.createHeader());
+
+      const form = new CarForm(this.carList);
+      container.appendChild(form.render());
+      container.appendChild(this.carList.render());
+      
       return container;
     }
   

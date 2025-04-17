@@ -36,3 +36,52 @@ body {
 .header-nav .nav-button:hover {
   background-color: #333;
 }
+
+.car-form {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.car-input {
+  flex: 1;
+  padding: 0.5rem;
+}
+
+.color-input {
+  width: 60px;
+  height: 38px;
+  border: none;
+  cursor: pointer;
+}
+
+.create-button {
+  padding: 0.5rem 1rem;
+  background: #28a745;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.car-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.car-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #222;
+  padding: 0.75rem;
+  border-radius: 6px;
+}
+
+.color-box {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #fff;
+  border-radius: 4px;
+}
