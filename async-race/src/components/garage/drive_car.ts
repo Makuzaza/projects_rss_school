@@ -1,4 +1,6 @@
 import { getCarsAPI, startMotorAPI, driveMotorAPI, stopMotorAPI, getCarAPI } from './api_garage';
+import { createWinnerAPI, getAllWinnersAPI, updateWinnerAPI } from '../winners/api_winners';
+import { updateWinnersUI } from '../winners/buttons_winners';
 import { numberPage } from './buttons_garage';
 import { DescriptionCar } from './utils_garage';
 
@@ -22,6 +24,21 @@ function addWinner(carWinner: HTMLElement, timeWinner: number) {
     noticeWinner.classList.remove('hidden');
     noticeWinner.innerHTML = `${nameWinner} went first (${timeWin}s) !`;
   });
+
+  getAllWinnersAPI().then((arrAllWin: DescriptionCar[]) => {
+    arrAllWin.forEach((item) => {
+      if (Number(item.id) === idWinner) {
+        wins = item.wins + 1;
+        timeWin = (Number(item.time) < Number(timeWin) ? item.time : timeWin).toString();
+      }
+    });
+    }).then(() => {
+      if (wins > 1) {
+        updateWinnerAPI({ 'wins': wins, 'time': timeWin }, idWinner);
+      } else {
+        createWinnerAPI({ 'id': idWinner, 'wins': wins, 'time': timeWin });
+      }
+    }).then(() => updateWinnersUI());
 }
 
 function animationCar(car: HTMLElement, distance: number, duration: number) {

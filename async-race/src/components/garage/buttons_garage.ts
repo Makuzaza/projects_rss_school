@@ -1,6 +1,9 @@
 import { countAllCars, getCarsAPI, getCarAPI, createCarAPI, deleteCarAPI, updateCarAPI } from './api_garage';
 import { createCarUI } from '../ui';
 import { getRandomName, getRandomColor, DescriptionCar } from './utils_garage';
+import { getAllWinnersAPI, deleteWinnerAPI } from '../winners/api_winners';
+import { updateWinnersUI } from '../winners/buttons_winners';
+import { resetRace } from './drive_car';
 
 const btnPrevCars = <HTMLButtonElement>document.querySelector('.btn-prev');
 const btnNextCars = <HTMLButtonElement>document.querySelector('.btn-next');
@@ -41,6 +44,7 @@ btnPrevCars.addEventListener('click', () => {
       numPage.textContent = `${numberPage}`;
   }
   updateCarsUI();
+  resetRace();
 });
 
 btnNextCars.addEventListener('click', () => {
@@ -52,6 +56,7 @@ btnNextCars.addEventListener('click', () => {
     numPage.textContent = `${numberPage}`;
   }
   updateCarsUI();
+  resetRace();
 });
 
 document.addEventListener('click', async (e) => {
@@ -67,6 +72,17 @@ document.addEventListener('click', async (e) => {
       inputTextUpdate.value = item.name;
       inputColorUpdate.value = item.color;
     });
+  }
+
+  if (btn.classList.contains('car-options_remove')) {
+    const idButton = Number(btn.dataset.remove);
+    deleteCarAPI(idButton).then(() => updateCarsUI());
+
+    getAllWinnersAPI().then((arrAllWin) => {
+      arrAllWin.forEach((item: DescriptionCar) => {
+        if (Number(item.id) === idButton) deleteWinnerAPI(idButton);
+      });
+    }).then(() => updateWinnersUI());
   }
 });
 
