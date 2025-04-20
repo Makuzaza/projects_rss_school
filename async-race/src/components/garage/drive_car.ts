@@ -35,31 +35,32 @@ function toggleAllCarButtons(disableStart: boolean, disableStop: boolean) {
   });
 }
 
-function addWinner(carWinner: HTMLElement, timeWinner: number) {
+async function addWinner(carWinner: HTMLElement, timeWinner: number) {
   const idWinner = Number(carWinner.dataset.car);
   let timeWin = (timeWinner / 1000).toFixed(2);
   let wins = 1;
   let nameWinner;
-  getCarAPI(idWinner).then((arr) => {
-    nameWinner = arr.name;
-    noticeWinner.classList.remove('hidden');
-    noticeWinner.innerHTML = `${nameWinner} went first (${timeWin}s) !`;
+
+  const carData = await getCarAPI(idWinner);
+  nameWinner = carData.name;
+  noticeWinner.classList.remove('hidden');
+  noticeWinner.innerHTML = `${nameWinner} went first (${timeWin}s)!`;
+
+  const allWinners = await getAllWinnersAPI();
+  allWinners.forEach((item: { id: number; wins: number; time: string }) => {
+    if (Number(item.id) === idWinner) {
+      wins = item.wins + 1;
+      timeWin = (Number(item.time) < Number(timeWin) ? item.time : timeWin).toString();
+    }
   });
 
-  getAllWinnersAPI().then((arrAllWin: DescriptionCar[]) => {
-    arrAllWin.forEach((item) => {
-      if (Number(item.id) === idWinner) {
-        wins = item.wins + 1;
-        timeWin = (Number(item.time) < Number(timeWin) ? item.time : timeWin).toString();
-      }
-    });
-    }).then(() => {
-      if (wins > 1) {
-        updateWinnerAPI({ 'wins': wins, 'time': timeWin }, idWinner);
-      } else {
-        createWinnerAPI({ 'id': idWinner, 'wins': wins, 'time': timeWin });
-      }
-    }).then(() => updateWinnersUI());
+  if (wins > 1) {
+    await updateWinnerAPI({ wins, time: timeWin }, idWinner);
+  } else {
+    await createWinnerAPI({ id: idWinner, wins, time: timeWin });
+  }
+  
+  await updateWinnersUI();
 }
 
 function animationCar(car: HTMLElement, distance: number, duration: number) {

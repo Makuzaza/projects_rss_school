@@ -24,14 +24,9 @@ export let numberPage = 1;
 
 const updateGarageButtonStates = () => {
   const totalPages = Math.ceil(countAllCars / 7) || 1;
-  
-  // Previous button - disabled on first page
   btnPrevCars.disabled = numberPage <= 1;
-  
-  // Next button - disabled on last page or when no items
   btnNextCars.disabled = numberPage >= totalPages || countAllCars === 0;
   
-  // Hide buttons when there's only one page or no items
   btnPrevCars.style.visibility = totalPages <= 1 ? 'hidden' : 'visible';
   btnNextCars.style.visibility = totalPages <= 1 ? 'hidden' : 'visible';
 };
