@@ -1,6 +1,0 @@
-{
-  "devDependencies": {
-    "raw-loader": "^4.0.2",
-    "svgo-loader": "^4.0.0"
-  }
-}

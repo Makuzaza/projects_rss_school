@@ -403,9 +403,9 @@ td {
   right: 2px;
   top: 50%;
   transform: translateY(-50%);
-  width: 14px;
-  height: 14px;
-  background-image: url('../src/assets/sort.png');
+  width: 16px;
+  height: 16px;
+  background-image: url('../src/assets/sorting.png');
   background-size: contain;
   background-repeat: no-repeat;
   filter: brightness(0) invert(1);
