@@ -22,6 +22,26 @@ const btnUpdate = <HTMLInputElement>document.querySelector('.btn-update');
 let idUpdateCar: number;
 export let numberPage = 1;
 
+const updateGarageButtonStates = () => {
+  const totalPages = Math.ceil(countAllCars / 7) || 1;
+  
+  // Previous button - disabled on first page
+  btnPrevCars.disabled = numberPage <= 1;
+  
+  // Next button - disabled on last page or when no items
+  btnNextCars.disabled = numberPage >= totalPages || countAllCars === 0;
+  
+  // Hide buttons when there's only one page or no items
+  btnPrevCars.style.visibility = totalPages <= 1 ? 'hidden' : 'visible';
+  btnNextCars.style.visibility = totalPages <= 1 ? 'hidden' : 'visible';
+};
+
+const updatePageDisplay = () => {
+  const totalPages = Math.ceil(countAllCars / 7) || 1;
+  numPage.textContent = `${numberPage}/${totalPages}`;
+  updateGarageButtonStates();
+};
+
 export const updateCarsUI = () => {
   getCarsAPI(numberPage).then((arr: DescriptionCar[]) => {
     containerCar.innerHTML = '';
@@ -31,32 +51,25 @@ export const updateCarsUI = () => {
       containerCar.innerHTML += oneCar;
     });
     countGarage.textContent = `(${countAllCars})`;
+    updatePageDisplay();
   });
 };
 updateCarsUI();
 
 btnPrevCars.addEventListener('click', () => {
-  if (numberPage === 1) {
-    btnPrevCars.setAttribute('disabled', 'disabled');
-  } else {
-    btnNextCars.removeAttribute('disabled');
-      numberPage -= 1;
-      numPage.textContent = `${numberPage}`;
+  if (numberPage > 1) {
+    numberPage -= 1;
+    updateCarsUI();
+    resetRace();
   }
-  updateCarsUI();
-  resetRace();
 });
 
 btnNextCars.addEventListener('click', () => {
-  if (numberPage * 7 >= countAllCars) {
-    btnNextCars.setAttribute('disabled', 'disabled');
-  } else {
-    btnPrevCars.removeAttribute('disabled');
+  if (numberPage * 7 < countAllCars) {
     numberPage += 1;
-    numPage.textContent = `${numberPage}`;
+    updateCarsUI();
+    resetRace();
   }
-  updateCarsUI();
-  resetRace();
 });
 
 document.addEventListener('click', async (e) => {
@@ -98,8 +111,6 @@ generateNewCarBtn.addEventListener('click', (e) => {
     } else {
       (createCarAPI({ 'name': nameNewCar, 'color': colorNewCar })).then(() => updateCarsUI());
     }
-
-    if (countAllCars % 7 === 0) btnNextCars.removeAttribute('disabled');
     inputTextCreate.value = '';
   }
 

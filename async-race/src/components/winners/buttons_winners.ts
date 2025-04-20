@@ -10,6 +10,27 @@ const btnPrevWinners = <HTMLButtonElement>document.querySelector('.btn-prev-win'
 const btnNextWinners = <HTMLButtonElement>document.querySelector('.btn-next-win');
 const numPageWinners = <HTMLElement>document.querySelector('.count-page_winners');
 
+// Update button states based on current page position
+const updateWinnersButtonStates = () => {
+  const totalPages = Math.ceil(countAllWinners / 10) || 1;
+  
+  // Previous button - disabled on first page
+  btnPrevWinners.disabled = numberPageWinners <= 1;
+  
+  // Next button - disabled on last page or when no items
+  btnNextWinners.disabled = numberPageWinners >= totalPages || countAllWinners === 0;
+  
+  // Hide buttons when there's only one page or no items
+  btnPrevWinners.style.visibility = totalPages <= 1 ? 'hidden' : 'visible';
+  btnNextWinners.style.visibility = totalPages <= 1 ? 'hidden' : 'visible';
+};
+
+const updateWinnersPageDisplay = () => {
+  const totalPages = Math.ceil(countAllWinners / 10) || 1;
+  numPageWinners.textContent = `${numberPageWinners}/${totalPages}`;
+  updateWinnersButtonStates();
+};
+
 export const updateWinnersUI = () => {
   let num = numberPageWinners * 10 - 10;
 
@@ -29,6 +50,7 @@ export const updateWinnersUI = () => {
       });
     });
     countWinners.textContent = `(${countAllWinners})`;
+    updateWinnersPageDisplay();
   });
 };
 updateWinnersUI();

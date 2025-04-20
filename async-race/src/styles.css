@@ -182,7 +182,7 @@ h3 {
 }
 
 .car {
-  border-bottom: 3px dashed white;
+  border-bottom: 3px dashed rgb(27, 26, 26);
   margin-bottom: 15px;
 }
 .car-options,
@@ -203,6 +203,13 @@ h3 {
   font-weight: 700;
 }
 
+.car-options_select {
+  background-color: #95bae1;
+}
+.car-options_remove {
+  background-color: #d0858c;
+}
+
 .car-options_select,
 .car-options_remove {
   border: 2px solid #ced4da;
@@ -217,7 +224,7 @@ h3 {
   border-color: #007bff;
 }
 .car-options_select:focus {
-  box-shadow: 0 0 10px rgba(77, 128, 236, 0.8);
+  box-shadow: 0 0 10px rgba(197, 175, 52, 0.8);
 }
 
 .car-control_start,
@@ -336,9 +343,9 @@ button:disabled {
 }
 
 .table-winners {
-  color: rgb(209, 208, 208);
+  color: rgb(38, 37, 37);
   border-collapse: collapse;
-  text-align: left;
+  text-align: center;
 }
 
 thead {
@@ -364,7 +371,7 @@ td {
   font-weight: 500;
   text-shadow: gold 1px -2px;
   text-align: center;
-  background-color: #babbbc67;
+  background-color: #4b4b4c67;
 }
 
 .hidden {
@@ -376,7 +383,6 @@ td {
 }
 
 /* modal css */
-/* Add this to your styles */
 .modal {
   position: fixed;
   top: 0;
