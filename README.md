@@ -16,7 +16,7 @@ git clone https://github.com/rolling-scopes-school/makuzaza-JSFEEN2024Q4.git
 ```
 ### 3. Choose async branch, go to downloaded folder:
 ```bash
-git checkout async-race
+git checkout async
 cd async-race
 ```
 ### 4. Install dependencies: 
