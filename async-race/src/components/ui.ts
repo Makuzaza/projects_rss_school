@@ -145,8 +145,8 @@ const createBodyUI = async () => {
               <th>Number</th>
               <th>Car</th>
               <th>Name</th>
-              <th>Wins</th>
-              <th>Best time (seconds)</th>
+              <th class="sortable" data-sort="wins">Wins</th>
+              <th class="sortable" data-sort="time">Best time (seconds)</th>
             </tr>
           </thead>
           <tbody class="container-win">

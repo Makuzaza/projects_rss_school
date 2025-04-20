@@ -8,8 +8,18 @@ export const getAllWinnersAPI = async () => {
   return response.json();
 };
 
-export const getWinnersAPI = async (page: number, limit = 10) => {
-  const response = await fetch(`${winners}?_page=${page}&_limit=${limit}`, { method: 'GET' });
+export const getWinnersAPI = async (
+  page: number, 
+  limit = 10,
+  sort: string = '',
+  order: 'asc' | 'desc' = 'asc'
+) => {
+  const url = new URL(`${winners}?_page=${page}&_limit=${limit}`, window.location.origin);
+  if (sort) {
+    url.searchParams.append('_sort', sort);
+    url.searchParams.append('_order', order);
+  }
+  const response = await fetch(url.toString(), { method: 'GET' });
   countAllWinners = Number(response.headers.get('X-Total-count'));
   return response.json();
 };

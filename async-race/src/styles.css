@@ -168,10 +168,11 @@ body {
   color: rgb(11, 11, 11);
 }
 h1 {
-  font-size: 2vw;
+  font-size: 24px;
+  margin: 10px 0;
 }
 h3 {
-  font-size: 1.5vw;
+  font-size: 16px;
 }
 
 /* cars */
@@ -238,15 +239,23 @@ h3 {
   margin-top: 10px;
 }
 
-.car-control_start:hover,
-.car-control_stop:hover {
+.car-control_start:disabled,
+.car-control_stop:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  color: rgba(176, 252, 63, 0.5);
+  border-color: rgba(176, 252, 63, 0.3);
+}
+
+.car-control_start:not(:disabled):hover,
+.car-control_stop:not(:disabled):hover {
   color: black;
   background-color: rgba(176, 252, 63, 0.85);
   border-color: rgba(176, 252, 63, 1);
 }
 
-.car-control_start:focus,
-.car-control_stop:focus {
+.car-control_start:not(:disabled):focus,
+.car-control_stop:not(:disabled):focus {
   outline: none;
   box-shadow: 0 0 0.3vw rgba(176, 252, 63, 0.8);
 }
@@ -380,6 +389,26 @@ td {
 
 .hide {
   display: none;
+}
+
+.sortable {
+  position: relative;
+  padding-right: 20px;
+  cursor: pointer;
+}
+
+.sortable::after {
+  content: "";
+  position: absolute;
+  right: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  background-image: url('../src/assets/sort.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: brightness(0) invert(1);
 }
 
 /* modal css */
