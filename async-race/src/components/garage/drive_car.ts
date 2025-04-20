@@ -9,10 +9,31 @@ const btnRace = <HTMLButtonElement>document.querySelector('.btn-race');
 const infoAnimation: { [id: number] : DescriptionCar; } = {};
 const noticeWinner = <HTMLElement>document.querySelector('.winner-notice');
 const containerRace = <HTMLElement>document.querySelector('.field-control');
-const btnStartRave = <HTMLButtonElement>document.querySelector('.btn-race');
+const btnStartRace = <HTMLButtonElement>document.querySelector('.btn-race');
 const btnStopRace = <HTMLButtonElement>document.querySelector('.btn-reset');
 let time: number; 
 let resultRace: HTMLElement[] = [];
+
+function toggleAllCarButtons(disableStart: boolean, disableStop: boolean) {
+  const allStartButtons = document.querySelectorAll('.car-control_start');
+  const allStopButtons = document.querySelectorAll('.car-control_stop');
+  
+  allStartButtons.forEach(btn => {
+    if (disableStart) {
+      btn.setAttribute('disabled', 'disabled');
+    } else {
+      btn.removeAttribute('disabled');
+    }
+  });
+  
+  allStopButtons.forEach(btn => {
+    if (disableStop) {
+      btn.setAttribute('disabled', 'disabled');
+    } else {
+      btn.removeAttribute('disabled');
+    }
+  });
+}
 
 function addWinner(carWinner: HTMLElement, timeWinner: number) {
   const idWinner = Number(carWinner.dataset.car);
@@ -145,14 +166,16 @@ containerRace.addEventListener('click', async (e) => {
 
   if (btn.classList.contains('btn-race')) {
     startRaceCars(numberPage);
-    btnStartRave.setAttribute('disabled', 'disabled');
+    btnStartRace.setAttribute('disabled', 'disabled');
     btnStopRace.removeAttribute('disabled');
+    toggleAllCarButtons(true, false);
   }
 
   if (btn.classList.contains('btn-reset')) {
     resetRace(); 
     await stopRaceCars(numberPage);
     btnStopRace.setAttribute('disabled', 'disabled');
-    btnStartRave.removeAttribute('disabled');
+    btnStartRace.removeAttribute('disabled');
+    toggleAllCarButtons(false, true);
   }
 });
