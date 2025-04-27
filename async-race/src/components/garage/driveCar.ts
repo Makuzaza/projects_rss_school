@@ -1,8 +1,9 @@
-import { getCarsAPI, startMotorAPI, driveMotorAPI, stopMotorAPI, getCarAPI } from './api_garage';
-import { createWinnerAPI, getAllWinnersAPI, updateWinnerAPI } from '../winners/api_winners';
-import { updateWinnersUI } from '../winners/buttons_winners';
-import { numberPage } from './buttons_garage';
-import { DescriptionCar } from './utils_garage';
+import { EngineService } from '../services/EngineService';
+import { GarageService } from '../services/GarageService';
+import { WinnerService } from '../services/WinnerService';
+import { updateWinnersUI } from '../winners/buttonsWinners';
+import { numberPage } from './buttonsGarage';
+import { DescriptionCar } from './utilsGarage';
 
 const btnResetRace = <HTMLButtonElement>document.querySelector('.btn-reset');
 const btnRace = <HTMLButtonElement>document.querySelector('.btn-race');
@@ -13,6 +14,7 @@ const btnStartRace = <HTMLButtonElement>document.querySelector('.btn-race');
 const btnStopRace = <HTMLButtonElement>document.querySelector('.btn-reset');
 let time: number; 
 let resultRace: HTMLElement[] = [];
+const limitPage: number = 7;
 
 function toggleAllCarButtons(disableStart: boolean, disableStop: boolean) {
   const allStartButtons = document.querySelectorAll('.car-control_start');
@@ -41,12 +43,12 @@ async function addWinner(carWinner: HTMLElement, timeWinner: number) {
   let wins = 1;
   let nameWinner;
 
-  const carData = await getCarAPI(idWinner);
+  const carData = await GarageService.getCar(idWinner); 
   nameWinner = carData.name;
   noticeWinner.classList.remove('hidden');
   noticeWinner.innerHTML = `${nameWinner} went first (${timeWin}s)!`;
 
-  const allWinners = await getAllWinnersAPI();
+  const allWinners = await WinnerService.getAllWinners();
   allWinners.forEach((item: { id: number; wins: number; time: string }) => {
     if (Number(item.id) === idWinner) {
       wins = item.wins + 1;
@@ -55,9 +57,9 @@ async function addWinner(carWinner: HTMLElement, timeWinner: number) {
   });
 
   if (wins > 1) {
-    await updateWinnerAPI({ wins, time: timeWin }, idWinner);
+    await WinnerService.updateWinner({ wins, time: timeWin }, idWinner);
   } else {
-    await createWinnerAPI({ id: idWinner, wins, time: timeWin });
+    await WinnerService.createWinner({ id: idWinner, wins, time: timeWin });
   }
   
   await updateWinnersUI();
@@ -88,7 +90,7 @@ function animationCar(car: HTMLElement, distance: number, duration: number) {
 }
 
 const startCar = async (idCar: number) => {
-  startMotorAPI(idCar).then((obj) => {
+    const obj = await EngineService.startEngine(idCar);
     const velocity = Number(obj.velocity);
     const distance = Number(obj.distance);
     time = distance / velocity;
@@ -100,33 +102,29 @@ const startCar = async (idCar: number) => {
 
     infoAnimation[idCar] = animationCar(car, distanceAnimation, time);
 
-    driveMotorAPI(idCar).then((drive) => {
-      if (!drive.success) {
-        window.cancelAnimationFrame(infoAnimation[idCar].id);
-      }
-    });
-  });
+    const drive = await EngineService.driveEngine(idCar);
+    if (!drive.success) {
+      window.cancelAnimationFrame(infoAnimation[idCar].id);
+    }
 };
 
 export const stopCar = async (idStop: number) => {
-  stopMotorAPI(idStop).then(() => {
+    await EngineService.stopEngine(idStop);
     window.cancelAnimationFrame(infoAnimation[idStop].id);
     const car = <HTMLElement>document.getElementById(`car-${idStop}`);
     car.style.transform = 'translateX(0px)';
-  });
 };
 
 const startRaceCars = async (page: number) => {
-  getCarsAPI(page, 7).then((arrCars: DescriptionCar[]) => 
-  arrCars.forEach((elem) => startCar(elem.id)));
+    const arrCars = await GarageService.getCars(page, limitPage);
+    arrCars.forEach((elem: DescriptionCar) => startCar(elem.id));
 };
 
 export const stopRaceCars = async (page: number) => {
-  getCarsAPI(page, 7).then((arrCars: DescriptionCar[]) => {
-   arrCars.forEach((elem) => stopCar(elem.id));
-  });
-  resultRace = [];
-  noticeWinner.innerHTML = '';
+  const arrCars = await GarageService.getCars(page, limitPage);
+    arrCars.forEach((elem: DescriptionCar) => stopCar(elem.id));
+    resultRace = [];
+    noticeWinner.innerHTML = '';
 };
 
 export function resetRace() {
@@ -136,7 +134,7 @@ export function resetRace() {
     resultRace = [];
     noticeWinner.classList.add('hidden');
     noticeWinner.innerHTML = '';
-    console.log(noticeWinner.classList); 
+    // console.log(noticeWinner.classList); 
   }
 }
 
@@ -145,7 +143,7 @@ document.addEventListener('click', async (e) => {
 
   if (btn.classList.contains('car-control_start')) {
     const idCar = Number(btn.dataset.start);
-    startCar(idCar);
+    await startCar(idCar);
     const btnStart = <HTMLButtonElement>document.getElementById(`start-${idCar}`);
     const btnStop = <HTMLButtonElement>document.getElementById(`stop-${idCar}`);
     btnStart.setAttribute('disabled', 'disabled');
@@ -154,7 +152,7 @@ document.addEventListener('click', async (e) => {
 
   if (btn.classList.contains('car-control_stop')) {
     const idCar = Number(btn.dataset.stop);
-    stopCar(idCar);
+    await stopCar(idCar);
     const btnStart = <HTMLButtonElement>document.getElementById(`start-${idCar}`);
     const btnStop = <HTMLButtonElement>document.getElementById(`stop-${idCar}`);
     btnStop.setAttribute('disabled', 'disabled');

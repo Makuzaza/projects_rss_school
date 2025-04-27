@@ -41,6 +41,7 @@ build/Release
 node_modules/
 jspm_packages/
 news-JS/
+fun_chat/
 
 # TypeScript v1 declaration files
 typings/
@@ -103,3 +104,7 @@ dist
 
 # TernJS port file
 .tern-port
+
+# babel-loader cache
+.babelrc
+

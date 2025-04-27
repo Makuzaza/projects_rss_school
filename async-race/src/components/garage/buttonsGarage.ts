@@ -1,9 +1,9 @@
-import { countAllCars, getCarsAPI, getCarAPI, createCarAPI, deleteCarAPI, updateCarAPI } from './api_garage';
+import { GarageService } from '../services/GarageService';
+import { WinnerService } from '../services/WinnerService';
 import { createCarUI } from '../ui';
-import { getRandomName, getRandomColor, DescriptionCar } from './utils_garage';
-import { getAllWinnersAPI, deleteWinnerAPI } from '../winners/api_winners';
-import { updateWinnersUI } from '../winners/buttons_winners';
-import { resetRace } from './drive_car';
+import { getRandomName, getRandomColor, DescriptionCar } from './utilsGarage';
+import { updateWinnersUI } from '../winners/buttonsWinners';
+import { resetRace } from './driveCar';
 
 const btnPrevCars = <HTMLButtonElement>document.querySelector('.btn-prev');
 const btnNextCars = <HTMLButtonElement>document.querySelector('.btn-next');
@@ -21,31 +21,33 @@ const btnUpdate = <HTMLInputElement>document.querySelector('.btn-update');
 
 let idUpdateCar: number;
 export let numberPage = 1;
+const limitPage: number = 7;
+const randomCars: number = 100;
 
 const updateGarageButtonStates = () => {
-  const totalPages = Math.ceil(countAllCars / 7) || 1;
+  const totalPages = Math.ceil(GarageService.countAllCars / limitPage) || 1;
   btnPrevCars.disabled = numberPage <= 1;
-  btnNextCars.disabled = numberPage >= totalPages || countAllCars === 0;
+  btnNextCars.disabled = numberPage >= totalPages || GarageService.countAllCars === 0;
   
   btnPrevCars.style.visibility = totalPages <= 1 ? 'hidden' : 'visible';
   btnNextCars.style.visibility = totalPages <= 1 ? 'hidden' : 'visible';
 };
 
 const updatePageDisplay = () => {
-  const totalPages = Math.ceil(countAllCars / 7) || 1;
+  const totalPages = Math.ceil(GarageService.countAllCars / limitPage) || 1;
   numPage.textContent = `${numberPage}/${totalPages}`;
   updateGarageButtonStates();
 };
 
 export const updateCarsUI = () => {
-  getCarsAPI(numberPage).then((arr: DescriptionCar[]) => {
+  GarageService.getCars(numberPage).then((arr: DescriptionCar[]) => {
     containerCar.innerHTML = '';
 
     arr.forEach((car) => {
       const oneCar = `${createCarUI(car.id, car.name, car.color)}`;
       containerCar.innerHTML += oneCar;
     });
-    countGarage.textContent = `(${countAllCars})`;
+    countGarage.textContent = `(${GarageService.countAllCars})`;
     updatePageDisplay();
   });
 };
@@ -60,7 +62,7 @@ btnPrevCars.addEventListener('click', () => {
 });
 
 btnNextCars.addEventListener('click', () => {
-  if (numberPage * 7 < countAllCars) {
+  if (numberPage * limitPage < GarageService.countAllCars) {
     numberPage += 1;
     updateCarsUI();
     resetRace();
@@ -76,7 +78,7 @@ document.addEventListener('click', async (e) => {
     inputColorUpdate.disabled = false;
     btnUpdate.disabled = false;
 
-    getCarAPI(idUpdateCar).then((item) => {
+    GarageService.getCar(idUpdateCar).then((item) => {
       inputTextUpdate.value = item.name;
       inputColorUpdate.value = item.color;
     });
@@ -84,11 +86,11 @@ document.addEventListener('click', async (e) => {
 
   if (btn.classList.contains('car-options_remove')) {
     const idButton = Number(btn.dataset.remove);
-    deleteCarAPI(idButton).then(() => updateCarsUI());
+    GarageService.deleteCar(idButton).then(() => updateCarsUI());
 
-    getAllWinnersAPI().then((arrAllWin) => {
+    WinnerService.getAllWinners().then((arrAllWin) => {
       arrAllWin.forEach((item: DescriptionCar) => {
-        if (Number(item.id) === idButton) deleteWinnerAPI(idButton);
+        if (Number(item.id) === idButton) WinnerService.deleteWinner(idButton);
       });
     }).then(() => updateWinnersUI());
   }
@@ -104,7 +106,7 @@ generateNewCarBtn.addEventListener('click', (e) => {
     if (nameNewCar == '') {
       alert('Please, enter name car!');
     } else {
-      (createCarAPI({ 'name': nameNewCar, 'color': colorNewCar })).then(() => updateCarsUI());
+      (GarageService.createCar({ 'name': nameNewCar, 'color': colorNewCar })).then(() => updateCarsUI());
     }
     inputTextCreate.value = '';
   }
@@ -113,7 +115,7 @@ generateNewCarBtn.addEventListener('click', (e) => {
     const nameUpdateCar =  inputTextUpdate.value;
     const colorUpdateCar =  inputColorUpdate.value;
     
-    (updateCarAPI( { 'name': nameUpdateCar, 'color': colorUpdateCar }, idUpdateCar)).then(() => updateCarsUI() );
+    (GarageService.updateCar( { 'name': nameUpdateCar, 'color': colorUpdateCar }, idUpdateCar)).then(() => updateCarsUI() );
     
     inputTextUpdate.value = '';
     inputTextUpdate.disabled = true;
@@ -123,11 +125,11 @@ generateNewCarBtn.addEventListener('click', (e) => {
 });
 
 btnGenerateCards.addEventListener('click', async () => {
-  for (let i = 0; i < 100; i++){
+  for (let i = 0; i < randomCars; i++){
     const name = getRandomName();
     const color = getRandomColor();
   
-    createCarAPI({ 'name': `${name}`, 'color': `${color}` });
+    GarageService.createCar({ 'name': `${name}`, 'color': `${color}` });
   }
   updateCarsUI();
   btnNextCars.removeAttribute('disabled');

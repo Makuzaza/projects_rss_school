@@ -1,4 +1,3 @@
-// modal.ts
 export class Modal {
     static render() {
       const modal = document.createElement('div');
