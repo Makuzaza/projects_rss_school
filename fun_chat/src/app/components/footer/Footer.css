@@ -1,0 +1,86 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    padding: 0 15px;
+    margin: 0;
+    color: var(--white-color);
+    background: rgba(21, 3, 43, 0.7);
+    box-shadow: 0px -3px 3px var(--box-shadow);
+    opacity: 0.9;
+    transition: all 0.5s;
+  }
+  
+  .footer-container {
+    width: 100%;
+    display: flex;
+    max-width: 1000px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .social-items {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .social-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.5s;
+  }
+  
+  .social-item-link {
+    color: var(--white-color);
+    transition: all 0.5s;
+    text-decoration: none;
+  }
+  
+  .social-item-link svg {
+    margin-left: 20px;
+    width: 30px;
+    height: 30px;
+    transition: all 0.5s;
+  }
+  
+  .rs-icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 95px;
+    height: 40px;
+  }
+  
+  .rs-icon-wrap .rsschool-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: url('../../../assets/rsschool.png') center / 80% 80% no-repeat;
+    transition: all 0.5s;
+  }
+  
+  /* HOVER */
+  @media (hover: hover) and (pointer: fine) {
+    .social-item:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+      box-shadow: 0 0.8em 0.8em -0.4em var(--box-shadow-hover);
+    }
+  
+    .social-item:hover svg {
+      fill: var(--box-shadow-hover);
+    }
+  
+    .developer .social-item-link:hover {
+      color: var(--box-shadow-hover);
+    }
+  }
+  
