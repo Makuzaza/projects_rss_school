@@ -90,7 +90,7 @@ function animationCar(car: HTMLElement, distance: number, duration: number) {
 }
 
 const startCar = async (idCar: number) => {
-    const obj = await EngineService.startEngine(idCar);
+  EngineService.startEngine(idCar).then((obj) => {
     const velocity = Number(obj.velocity);
     const distance = Number(obj.distance);
     time = distance / velocity;
@@ -102,27 +102,31 @@ const startCar = async (idCar: number) => {
 
     infoAnimation[idCar] = animationCar(car, distanceAnimation, time);
 
-    const drive = await EngineService.driveEngine(idCar);
+    EngineService.driveEngine(idCar).then((drive) => {
     if (!drive.success) {
       window.cancelAnimationFrame(infoAnimation[idCar].id);
     }
+    });
+  });
 };
 
 export const stopCar = async (idStop: number) => {
-    await EngineService.stopEngine(idStop);
+  EngineService.stopEngine(idStop).then(() => {
     window.cancelAnimationFrame(infoAnimation[idStop].id);
     const car = <HTMLElement>document.getElementById(`car-${idStop}`);
     car.style.transform = 'translateX(0px)';
+  });
 };
 
 const startRaceCars = async (page: number) => {
-    const arrCars = await GarageService.getCars(page, limitPage);
-    arrCars.forEach((elem: DescriptionCar) => startCar(elem.id));
+  GarageService.getCars(page, limitPage).then((arrCars: DescriptionCar[]) => 
+    arrCars.forEach((elem) => startCar(elem.id)));
 };
 
 export const stopRaceCars = async (page: number) => {
-  const arrCars = await GarageService.getCars(page, limitPage);
-    arrCars.forEach((elem: DescriptionCar) => stopCar(elem.id));
+  GarageService.getCars(page, limitPage).then((arrCars: DescriptionCar[]) => {
+    arrCars.forEach((elem) => stopCar(elem.id));
+   });
     resultRace = [];
     noticeWinner.innerHTML = '';
 };
@@ -143,7 +147,7 @@ document.addEventListener('click', async (e) => {
 
   if (btn.classList.contains('car-control_start')) {
     const idCar = Number(btn.dataset.start);
-    await startCar(idCar);
+    startCar(idCar);
     const btnStart = <HTMLButtonElement>document.getElementById(`start-${idCar}`);
     const btnStop = <HTMLButtonElement>document.getElementById(`stop-${idCar}`);
     btnStart.setAttribute('disabled', 'disabled');

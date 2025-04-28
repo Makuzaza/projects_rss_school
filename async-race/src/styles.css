@@ -45,6 +45,11 @@ body {
     margin-bottom: 0;
     margin-top: 20px;
   }
+  .winner-notice {
+    top: 58% !important;
+    font-size: 24px !important;
+    width: 80vw !important;
+  }
 }
 
 .header-button {
@@ -376,7 +381,7 @@ td {
   transform: translate(-50%, -50%);
   width: 60vw;
   color: white;
-  font-size: 3.5vw;
+  font-size: 30px;
   font-weight: 500;
   text-shadow: gold 1px -2px;
   text-align: center;
