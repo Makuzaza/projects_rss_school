@@ -1,0 +1,74 @@
+.header {
+  display: flex;
+  align-items: center;
+  height: 7vh;
+  padding: 12px 35px;
+  color: var(--white-color);
+  background: rgba(21, 3, 43, 0.7);
+  box-shadow: 0px 4px 4px var(--box-shadow);
+  opacity: 0.9;
+  transition: all 0.5s;
+}
+
+.header-container {
+  width: 100%;
+  max-width: 1650px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttons-wrap {
+  display: flex;
+  gap: 10px;
+}
+
+.button {
+  width: 13vw;
+  max-width: 100px;
+  min-width: 60px;
+  height: 35px;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.user-info {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  color: var(--white-color);
+  -webkit-background-clip: text;
+  -ms-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  animation: fadeInDown 3.5s both 1;
+}
+
+@media (max-width: 800px) {
+  .header {
+    padding: 8px 15px;
+  }
+  .user-info {
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: normal;
+  }
+
+  .button {
+    padding: 1px;
+    font-size: 13px;
+    font-weight: 400;
+  }
+}
