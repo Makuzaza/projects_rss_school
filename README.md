@@ -1,37 +1,35 @@
-Deploy: https://rolling-scopes-school.github.io/makuzaza-JSFEEN2024Q4/
+## Fun Chat
 
-# 🚗 Async Race
+An interactive chat application developed as part of the RSSchool JS/FE course. Fun Chat provides users with a platform to engage in real-time communication through text messages. Key Features: Real-time Messaging: Engage in real-time conversations with other users. User Authentication: Securely log in to access the chat platform. Responsive Design: Enjoy a seamless experience across various devices and screen sizes. Experience the joy of real-time communication and connect with friends and colleagues in Fun Chat.
 
-A frontend racing app with API interaction — control, race, and manage your virtual cars!
+**Task Objectives**
 
----
+## Key Features:
 
-## 🛠️ Setup & Running
+- User Authentication Page
+- Main Page
+  - User List
+  - User Dialogue
+  - Messages include the time of sending, sender's username, message delivery status, message text, and indication of whether the message has been edited. A user can edit or remove his message.
+- About Page
 
-### 1. Use node 14.x or higher.
+## Technology stack
 
-### 2. Clone the repository
-```bash
-git clone https://github.com/rolling-scopes-school/makuzaza-JSFEEN2024Q4.git
-```
-### 3. Choose async branch, go to downloaded folder:
-```bash
-git checkout async
-cd async-race
-```
-### 4. Install dependencies: 
-```bash
-npm install
-```
-### 5. Start project: 
-```bash
-npm start
-```
-### 6. Clone the repository
-```bash
-git clone https://github.com/mikhama/async-race-api.git
-```
-### 7. Start server http://127.0.0.1:3000: 
-```bash
-npm start
-```
+- Language: [**TypeScript**](https://www.typescriptlang.org/)
+- Builder: [**Webpack**](https://webpack.js.org/)
+- Linters: [**ESLint**](https://eslint.org/), [**Prettier**](https://prettier.io/)
+- Pre-push/Pre-commit: [**Husky**](https://typicode.github.io/husky/)
+
+## Setup and Running Server Application for the Chat. API
+
+**To test the app functionality, please clone [server application](https://github.com/rolling-scopes-school/fun-chat-server/tree/main) and keep the server running during functionality review.**
+
+To use the chat server application follow these steps:
+
+- clone the repository
+- install the dependencies with npm i
+- create the .env file and specify the port settings and server event log settings in it
+- start the local server using npm run start
+- The server runs on port 4000 and listens for messages from client applications.
+
+In the .env.example file, you can find an example of basic parameter settings for the .env file.
