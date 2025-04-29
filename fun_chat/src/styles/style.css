@@ -3,10 +3,10 @@
 :root {
     --white-color: #ffffff;
     --black-color: #000000;
-    --blue-color: #088095;
+    --beige-color: #ae6c5a;
     --warning-color: #eb1212;
-    --box-shadow: rgb(13, 96, 111);
-    --box-shadow-hover: rgb(36, 199, 228);
+    --box-shadow: #b4b4b4;
+    --box-shadow-hover: #fda085;
   }
   
   html {
@@ -17,7 +17,7 @@
     min-height: 100vh;
     color: var(--white-color);
     background-color: var(--black-color);
-    background: linear-gradient(315deg, #73acba 0%, #8790c6 74%) fixed;
+    background: linear-gradient(315deg, #141725  0%, #1c0f40 74%) fixed;
     font-family: "Montserrat", sans-serif;
     font-size: 20px;
     font-weight: 400;
@@ -36,7 +36,7 @@
   }
   
   body::-webkit-scrollbar-thumb {
-    background-color: var(--blue-color);
+    background-color: var(--beige-color);
     border-radius: 3px;
   }
   
@@ -75,7 +75,7 @@
   @media (hover: hover) and (pointer: fine) {
     button:hover {
       box-shadow: 0px 8px 8px rgba(108, 171, 182, 0.5);
-      background-color: var(--blue-color);
+      background-color: var(--beige-color);
       color: var(--main-light);
     }
   }

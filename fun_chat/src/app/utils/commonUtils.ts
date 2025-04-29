@@ -45,3 +45,21 @@ export function isLoggedFromSessionStorage(): boolean {
   }
   return false;
 }
+
+export function setUserNameInHeader(): string {
+  const currentUserString = sessionStorage.getItem('user');
+  let userName;
+  if (currentUserString) {
+    const currentUser: User = JSON.parse(currentUserString);
+    userName = currentUser.login;
+  }
+  return userName || '';
+}
+
+export function getUserFromSessionStorage(): User | null {
+  const userString = sessionStorage.getItem('user');
+  if (!userString) {
+    return null;
+  }
+  return JSON.parse(userString);
+}

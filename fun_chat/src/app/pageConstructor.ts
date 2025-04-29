@@ -2,6 +2,7 @@ import { Component } from './components/Component';
 import { Header } from './components/header/Header';
 import { Footer } from './components/footer/Footer';
 import { WebSocketAPI } from './services/WebSocketAPI';
+import { MainContent } from './pages/mainContent/MainContent';
 
 class SiteWrapperComponent extends Component<'div'> {
   public webSocketAPI: WebSocketAPI;
@@ -9,8 +10,9 @@ class SiteWrapperComponent extends Component<'div'> {
     super('div', { className: 'site-wrapper', id: 'siteWrapper' });
     this.webSocketAPI = new WebSocketAPI();
     const headerComponent = new Header(this.webSocketAPI);
+    const mainComponent = new MainContent(this.webSocketAPI);
     const footerComponent = new Footer();
-    this.appendChildren([headerComponent, footerComponent]);
+    this.appendChildren([headerComponent, mainComponent, footerComponent]);
   }
 }
 
