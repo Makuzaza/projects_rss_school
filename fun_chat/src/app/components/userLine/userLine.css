@@ -1,0 +1,48 @@
+.user-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 1%;
+  cursor: pointer;
+}
+.user-line_name {
+  padding-right: 5px;
+  overflow: hidden;
+  line-height: 35px;
+}
+.user-line_status {
+  display: block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: chartreuse;
+}
+
+.user-line_status[data-status='false'] {
+  background-color: var(--warning-color);
+}
+
+.user-line_counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  margin-left: auto;
+  border-radius: 50%;
+  border: 1px solid var(--white-color);
+  font-size: 12px;
+  background-color: rgba(13, 96, 111, 0.5);
+  color: var(--white-color);
+  visibility: hidden;
+}
+
+.user-line_Counter[data-visible='true'] {
+  visibility: visible;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .user-line:hover {
+    background-color: rgba(13, 96, 111, 0.5);
+  }
+}

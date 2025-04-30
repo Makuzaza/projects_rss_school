@@ -1,4 +1,4 @@
-import type { User } from '../interfaces';
+import type { MessageData, MSGSentServerResponse, User } from '../interfaces';
 import type { ConstructorOf } from './types';
 
 export function isSome<T>(value: unknown): value is NonNullable<T> {
@@ -62,4 +62,47 @@ export function getUserFromSessionStorage(): User | null {
     return null;
   }
   return JSON.parse(userString);
+}
+
+export function formatDateTimeFromTimestamp(timestamp: number): string {
+  const date = new Date(timestamp);
+
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+  const hours = String(date.getHours()).padStart(2, '0');
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+  const seconds = String(date.getSeconds()).padStart(2, '0');
+
+  const formattedDateTime = `${day}.${month}.${year}, ${hours}:${minutes}:${seconds}`;
+
+  return formattedDateTime;
+}
+
+export function scrollToNewMessage(container: HTMLElement, messageBlock: HTMLElement): void {
+  const dialogBody = container;
+
+  const containerHeight = dialogBody.clientHeight;
+  const windowHeight = window.innerHeight;
+
+  if (dialogBody.scrollHeight <= windowHeight) {
+    dialogBody.scrollTop = dialogBody.scrollHeight;
+  } else {
+    const newMessageHeight = messageBlock.offsetHeight;
+    const newScrollTop = dialogBody.scrollHeight - containerHeight + newMessageHeight;
+
+    dialogBody.scrollTop = newScrollTop;
+  }
+}
+
+export function setOptions(responseData: MSGSentServerResponse): MessageData {
+  const { id } = responseData.payload.message;
+  const { datetime } = responseData.payload.message;
+  const { text } = responseData.payload.message;
+  const { from } = responseData.payload.message;
+  const { to } = responseData.payload.message;
+  const { status } = responseData.payload.message;
+
+  const options = { datetime, status, text, from, to, id };
+  return options;
 }

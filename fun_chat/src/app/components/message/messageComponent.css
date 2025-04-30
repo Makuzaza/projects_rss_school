@@ -1,0 +1,87 @@
+.message-container {
+  width: 100%;
+  padding: 5px;
+  transition: all 1s;
+}
+
+.message-content {
+  width: 50%;
+  min-width: 235px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 5px;
+  margin-bottom: 10px;
+  background-color: rgba(165, 200, 206, 0.1);
+  border-radius: 5px;
+  box-shadow: 0px 0px 4px rgb(16, 188, 219);
+}
+
+.message-content[data-user='current'] {
+  margin-left: auto;
+}
+
+.message-header {
+  width: 96%;
+  min-height: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-self: center;
+  font-size: 0.7rem;
+  justify-content: space-between;
+  margin-bottom: 9px;
+}
+
+.message-text {
+  background: linear-gradient(315deg, #02343d 0%, #0d011b 74%) fixed;
+  border-radius: 5px;
+  box-shadow: 0px 0px 3px rgb(16, 188, 219);
+  padding: 10px 7px;
+}
+
+.message-footer {
+  width: 96%;
+  min-height: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-self: flex-end;
+  font-size: 0.7rem;
+  justify-content: space-between;
+  padding-top: 8px;
+  margin: auto;
+}
+
+.edit-message-wrap {
+  display: flex;
+  gap: 10px;
+}
+.delete-message,
+.edit-message {
+  display: block;
+  width: 20px;
+  height: 20px;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.edit-message-wrap[data-user='current'] .delete-message,
+.edit-message-wrap[data-user='current'] .edit-message {
+  opacity: 1;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.delete-message {
+  background: url('../../../assets/icons/delete.png') 0 0 / 100% 100% no-repeat;
+}
+
+.edit-message {
+  background: url('../../../assets/icons/edit.png') 0 0 / 100% 100% no-repeat;
+}
+
+.message-footer-status-wrap {
+  display: flex;
+  gap: 10px;
+}

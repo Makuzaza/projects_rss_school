@@ -6,7 +6,6 @@ export enum Routes {
   About = '#about',
 }
 
-// check route
 export function checkRoute(route: string): Routes {
   if (Routes.Login.includes(route)) {
     return Routes.Login;

@@ -141,3 +141,7 @@ export interface UsersResponseData {
     users: User[];
   };
 }
+
+export type MessageDataMap = {
+    [key: string]: MessageData[];
+  };
