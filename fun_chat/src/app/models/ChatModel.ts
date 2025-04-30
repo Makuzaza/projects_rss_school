@@ -1,5 +1,5 @@
 import type { MessageData, MessageDataMap, User } from '../interfaces';
-import { eventNewUserAuthBus } from '../utils/eventBus';
+import { eventNewUserAuthBus } from '../utils/events';
 
 export class ChatModel {
   public activeUsers: User[] = [];

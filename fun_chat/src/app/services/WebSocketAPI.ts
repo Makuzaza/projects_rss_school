@@ -9,7 +9,7 @@ import {
   eventMessageReadBus,
   eventDeleteMsgResponseBus,
   eventEditMsgResponseBus,
-} from '../utils/eventBus';
+} from '../utils/events';
 
 export class WebSocketAPI {
   public ws: WebSocket;

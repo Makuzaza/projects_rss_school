@@ -1,6 +1,6 @@
 import type { MessageData } from '../../interfaces';
 import { formatDateTimeFromTimestamp } from '../../utils/commonUtils';
-import { eventDeleteMsgBtnClickedBus, eventEditMsgBtnClickedBus } from '../../utils/eventBus';
+import { eventDeleteMsgBtnClickedBus, eventEditMsgBtnClickedBus } from '../../utils/events';
 import { Component } from '../Component';
 import './messageComponent.css';
 

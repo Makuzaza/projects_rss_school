@@ -1,28 +1,29 @@
 .chat-page {
   display: flex;
   justify-content: space-between;
-  margin: auto;
-  height: 80svh;
+  margin: 15px auto;
+  height: 83vh;
+  max-width: 1000px;
   width: 95%;
 }
 
 .chat-page_aside {
   display: flex;
+  align-items: center;
   flex-direction: column;
   border-radius: 5px;
-  box-shadow: 0px 0px 10px rgb(16, 188, 219);
+  box-shadow: 0px 0px 10px var(--beige-color);
   transition: all 0.5s;
   box-sizing: border-box;
-  padding: 0.5%;
   width: 35%;
+  padding-top: 3px;
 }
 
 .chat-page_dialog {
   border-radius: 5px;
-  box-shadow: 0px 0px 10px rgb(16, 188, 219);
+  box-shadow: 0px 0px 10px var(--beige-color);
   transition: all 0.5s;
   box-sizing: border-box;
-  padding: 0.5%;
   width: 64%;
 }
 
@@ -30,13 +31,14 @@
 .dialog-input {
   height: 40px;
   outline: none;
-  padding: 0 5%;
-  width: 100%;
+  width: 95%;
   background-color: transparent;
-  border-radius: 2px;
+  border-radius: 5px;
   border: 1px solid var(--white-color);
   color: var(--white-color);
   letter-spacing: 1px;
+  padding-left: 5px;
+
 }
 
 .aside_users-list {
@@ -44,9 +46,12 @@
   flex-direction: column;
   justify-content: flex-start;
   overflow-y: scroll;
-  padding: 3% 1% 1%;
+  padding: 5px;
+  margin-top: 5px;
   width: 100%;
   height: 100%;
+  box-sizing: border-box;
+  font-size: 15px;
 }
 
 .aside_user-line {
@@ -59,12 +64,12 @@
   justify-content: space-around;
   height: 40px;
   width: 100%;
-  padding: 0 0.5% 0.5%;
   border-bottom: 1px solid;
+  margin: 0;
+  font-size: 18px;
 }
 
 .dialog-header_user-name {
-  padding: 0 5px;
   max-width: calc(100% - 40px);
   overflow: hidden;
 }
@@ -77,10 +82,30 @@
   display: flex;
   flex-direction: column-reverse;
   overflow-y: auto;
-  height: calc(100% - 82px);
+  height: calc(100% - 115px);
   position: relative;
   overflow-y: scroll;
   padding: 10px 1%;
+}
+
+.empty-dialogue-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #888;
+  font-style: italic;
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+  pointer-events: none;
+}
+
+.empty-dialogue-message::before {
+  content: "✉️";
+  display: block;
+  font-size: 2em;
+  margin-bottom: 10px;
 }
 
 .dialog-body_text {
@@ -94,14 +119,22 @@
 }
 
 .dialog-form {
-  margin-top: auto;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 0 6px;
 }
 
 .dialog-input {
   width: calc(99% - 100px);
 }
+
+.dialog-input:focus,
+.aside_contact-search:focus {
+  background-color: #e8e8ea;
+  color: black;
+}
+
 .dialog-input[disabled] {
   pointer-events: none;
   opacity: 0.5;
@@ -109,18 +142,19 @@
 
 .dialog-form-button {
   width: 100px;
-  height: 40px;
+  height: 45px;
+  margin-left: 5px;
 }
 
 .dialog-body::-webkit-scrollbar,
 .aside_users-list::-webkit-scrollbar {
-  width: 5px;
-  background-color: #02343d;
+  width: 2px;
+  background-color: #907b8b;
   border-radius: 3px;
 }
 
 .dialog-body::-webkit-scrollbar-thumb,
 .aside_users-list::-webkit-scrollbar-thumb {
-  background-color: var(--blue-color);
+  background-color: var(--box-shadow);
   border-radius: 3px;
 }

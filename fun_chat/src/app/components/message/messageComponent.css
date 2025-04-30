@@ -1,6 +1,6 @@
 .message-container {
   width: 100%;
-  padding: 5px;
+  padding: 2px 0;
   transition: all 1s;
 }
 
@@ -12,13 +12,19 @@
   flex-direction: column;
   padding: 8px 5px;
   margin-bottom: 10px;
-  background-color: rgba(165, 200, 206, 0.1);
+  background-color: rgba(240, 237, 237, 0.878);
+  color: black;
   border-radius: 5px;
-  box-shadow: 0px 0px 4px rgb(16, 188, 219);
+  box-shadow: 0px 0px 4px var(--box-shadow);
 }
 
 .message-content[data-user='current'] {
   margin-left: auto;
+  background-color: rgba(207, 243, 211, 0.8);
+}
+
+.message-content[data-user='recipient'] {
+  background-color: rgba(225, 225, 230, 0.8);
 }
 
 .message-header {
@@ -30,14 +36,17 @@
   align-self: center;
   font-size: 0.7rem;
   justify-content: space-between;
-  margin-bottom: 9px;
+  margin-bottom: 5px;
 }
 
 .message-text {
-  background: linear-gradient(315deg, #02343d 0%, #0d011b 74%) fixed;
+  background: linear-gradient(315deg, #d4d4d4 0%, #cfc0ca 74%) fixed;
   border-radius: 5px;
-  box-shadow: 0px 0px 3px rgb(16, 188, 219);
-  padding: 10px 7px;
+  box-shadow: 0px 0px 3px var(--beige-color);
+  padding: 5px;
+  font-size: 13px;
+  word-wrap: break-word; white-space: pre-wrap; 
+  overflow-wrap: break-word;
 }
 
 .message-footer {

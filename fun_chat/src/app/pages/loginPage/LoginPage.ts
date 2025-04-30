@@ -3,7 +3,7 @@ import { Component } from '../../components/Component';
 import { LoginController } from '../../controllers/loginController';
 import type { User } from '../../interfaces';
 import type { WebSocketAPI } from '../../services/WebSocketAPI';
-import { eventBus } from '../../utils/eventBus';
+import { eventBus } from '../../utils/events';
 import './LoginPage.css';
 
 export class LoginPage extends Component<'section'> {

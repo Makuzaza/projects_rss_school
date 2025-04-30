@@ -30,7 +30,7 @@ import {
   eventEditMsgBtnClickedBus,
   eventMessageEditBus,
   eventEditMsgResponseBus,
-} from '../utils/eventBus';
+} from '../utils/events';
 
 export class ChatController {
   public chatModel: ChatModel;
@@ -121,11 +121,11 @@ export class ChatController {
   }
 
   private messageReadHandler(data: MessageReadStatusChange): void {
-    console.log(data);
+    // console.log(data);
   }
 
   private deleteMsgHandler(msgId: string): void {
-    console.log(`deleteMessage`, msgId);
+    // console.log(`deleteMessage`, msgId);
     this.webSocketAPI.messageDeletion(msgId);
   }
 

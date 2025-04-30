@@ -1,7 +1,7 @@
 import { Component } from '../../components/Component';
 import { UserLine } from '../../components/userLine/userLine';
 import type { MessageDataMap, User } from '../../interfaces';
-import { eventMessageEditBus, eventMessageSentBus, eventSearchInputChangedBus, eventUserSelectedBus } from '../../utils/eventBus';
+import { eventMessageEditBus, eventMessageSentBus, eventSearchInputChangedBus, eventUserSelectedBus } from '../../utils/events';
 import './ChatPage.css';
 
 export class ChatPage extends Component<'section'> {
@@ -21,7 +21,6 @@ export class ChatPage extends Component<'section'> {
 
   constructor() {
     super('section', { className: `chat-page`, id: 'chatPage' });
-
     this.aside = new Component('aside', { className: `chat-page_aside`, id: 'chatPageAside' });
     this.contactSearch = new Component('input', { className: `aside_contact-search`, id: 'asideContactSearch' });
     this.usersList = new Component('ul', { className: `aside_users-list`, id: 'asideUsersList' });
@@ -130,7 +129,7 @@ export class ChatPage extends Component<'section'> {
   }
 
   public renderUsers(users: User[], root: HTMLElement, messageMap?: MessageDataMap): void {
-    console.log(`messageMap`, messageMap);
+    // console.log(`messageMap`, messageMap);
     users.forEach(user => {
       const name = user.login;
       const isLogged = user.isLogined || false;
@@ -155,7 +154,7 @@ export class ChatPage extends Component<'section'> {
     const isLogged = user.isLogined || false;
 
     if (isLogged === true) {
-      console.log(`draw user`, user);
+      // console.log(`draw user`, user);
       const userLineElement = new UserLine(name, isLogged);
       root.prepend(userLineElement.element);
     }

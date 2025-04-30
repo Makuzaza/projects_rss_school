@@ -1,5 +1,5 @@
 import { Component } from '../../components/Component';
-import { eventBus } from '../../utils/eventBus';
+import { eventBus } from '../../utils/events';
 
 import './AboutPage.css';
 

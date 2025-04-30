@@ -1,7 +1,7 @@
 import type { User } from '../../interfaces';
 import type { WebSocketAPI } from '../../services/WebSocketAPI';
 import { isLoggedFromSessionStorage } from '../../utils/commonUtils';
-import { eventBus } from '../../utils/eventBus';
+import { eventBus } from '../../utils/events';
 import { Component } from '../Component';
 import './Header.css';
 
@@ -21,7 +21,7 @@ export class Header extends Component<'header'> {
     this.headerContainer = new Component('div', { className: `header-container`, id: 'headerContainer' });
     this.appendChild(this.headerContainer);
 
-    this.headerLogo = new Component('h2', { className: `header-logo}`, text: 'Fun Chat' });
+    this.headerLogo = new Component('h2', { className: `header-logo`, text: 'Fun Chat' });
     this.userInfo = new Component('div', { className: `user-info`, id: 'userInfo' });
     this.buttonsWrap = new Component('div', { className: `buttons-wrap` });
 

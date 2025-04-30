@@ -46,8 +46,7 @@
 
 .user-info {
   text-align: center;
-  font-size: 30px;
-  font-weight: 600;
+  font-size: 25px;
   letter-spacing: 0.1rem;
   color: var(--white-color);
   -webkit-background-clip: text;
@@ -68,5 +67,14 @@
     padding: 1px;
     font-size: 13px;
     font-weight: 400;
+  }
+
+  .header-logo {
+    font-size: 18px;
+    letter-spacing: normal;
+  }
+
+  .user-info {
+    margin-right: 10px;
   }
 }
