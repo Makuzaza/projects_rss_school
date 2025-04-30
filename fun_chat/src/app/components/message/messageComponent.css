@@ -74,11 +74,11 @@
 }
 
 .delete-message {
-  background: url('../../../assets/icons/delete.png') 0 0 / 100% 100% no-repeat;
+  background: url('../../../assets/delete.png') 0 0 / 100% 100% no-repeat;
 }
 
 .edit-message {
-  background: url('../../../assets/icons/edit.png') 0 0 / 100% 100% no-repeat;
+  background: url('../../../assets/edit.png') 0 0 / 100% 100% no-repeat;
 }
 
 .message-footer-status-wrap {
