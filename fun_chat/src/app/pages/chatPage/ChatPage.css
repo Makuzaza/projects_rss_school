@@ -114,7 +114,7 @@
   width: 98%;
   display: block;
   text-align: center;
-  font-size: 26px;
+  font-size: 20px;
   opacity: 0.6;
 }
 
@@ -157,4 +157,16 @@
 .aside_users-list::-webkit-scrollbar-thumb {
   background-color: var(--box-shadow);
   border-radius: 3px;
+}
+
+.beginning-message {
+  text-align: center;
+  color: #ffffff;
+  font-style: italic;
+  padding: 12px;
+  margin: 16px auto;
+  background-color: #f8f8f837;
+  border-radius: 8px;
+  max-width: 80%;
+  font-size: 17px;
 }

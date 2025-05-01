@@ -112,14 +112,18 @@ export class ChatPage extends Component<'section'> {
   }
 
   public renderDialogBodyText(mode = 'default', targetElement: HTMLElement = this.dialogBodyText.element): void {
+    console.log(`targetElement`, targetElement);
+    console.log(`mode`, mode);
     const el = targetElement;
     let text;
     switch (mode) {
       case 'userSelected':
         text = 'Enter your first message...';
+        console.log('mode', mode);
         break;
       case 'dialogStarted':
         text = '';
+        console.log('mode', mode);
         break;
       default:
         text = 'Select a user to send a message...';

@@ -17,6 +17,7 @@ export class UserLine extends Component<'li'> {
     );
 
     this.userLineCounter = new Component('span', { className: `user-line_counter`, id: `userLineCounter_${name}` });
+    
     this.appendChildren([this.userLineStatus, this.userLineName, this.userLineCounter]);
   }
 }

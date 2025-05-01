@@ -23,8 +23,12 @@
   background-color: rgba(207, 243, 211, 0.8);
 }
 
-.message-content[data-user='recipient'] {
-  background-color: rgba(225, 225, 230, 0.8);
+.message[data-sender="system"] {
+  background-color: #f0f0f0;
+  color: #666;
+  align-self: center;
+  font-style: italic;
+  border-left: 3px solid #ccc;
 }
 
 .message-header {

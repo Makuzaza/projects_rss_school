@@ -230,6 +230,40 @@ export class ChatController {
           dialogBody.scrollTop = dialogBody.scrollHeight;
         }
       });
+    } else {
+      this.absenceMesageHistory(this.chatModel.recipient);
+    }
+  }
+
+  private absenceMesageHistory(user: string): void {
+    const dialogBody = document.getElementById('dialogBody');
+    if (dialogBody) {
+      dialogBody.innerHTML = '';
+    }
+    this.chatModel.mode = 'dialogStarted';
+    const el = document.getElementById('dialogBodyText');
+    if (el) {
+      this.chatPage.renderDialogBodyText(this.chatModel.mode, el);
+    }
+  
+    const beginningMessage = document.createElement('div');
+    beginningMessage.className = 'beginning-message';
+    beginningMessage.textContent = `Start conversation with ${user}`;
+    beginningMessage.id = 'beginning-of-dialogue';
+  
+    if (dialogBody) {
+      dialogBody.appendChild(beginningMessage);
+      dialogBody.scrollTop = dialogBody.scrollHeight;
+    }
+  
+    const dialogInput = document.getElementById('dialogInput');
+    if (dialogInput) {
+      dialogInput.addEventListener('input', () => {
+        const message = document.getElementById('beginning-of-dialogue');
+        if (message) {
+          message.remove();
+        }
+      }, { once: true });
     }
   }
 
