@@ -145,7 +145,7 @@ export class ChatController {
     
     if (dialogBody) {
       dialogBody.addEventListener('scroll', () => {
-        console.log('isUserScroll:', this.isUserScroll);
+        // console.log('isUserScroll:', this.isUserScroll);
         if (this.isUserScroll) {
           this.removeUnreadMessageDivider();
         } 
@@ -311,8 +311,8 @@ export class ChatController {
               item.status.isReaded === false && 
               item.from !== this.chatModel.currentUser?.login
             );
-            const countUnreadMessages = unreadMessages.length;
-            console.log('countUnreadMessages:', countUnreadMessages);
+            // const countUnreadMessages = unreadMessages.length;
+            // console.log('countUnreadMessages:', countUnreadMessages);
 
             if (unreadMessages.length > 0) {
               const divider = document.createElement('div');
