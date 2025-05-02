@@ -47,7 +47,7 @@ export class LoginPage extends Component<'section'> {
     this.setInputsProperties();
     this.appendChild(this.form);
 
-    eventBus.subscribe('authError', event => {
+    eventBus.subscribe('authError', (event: Event) => {
       this.drawErrorMessage(event);
     });
     eventBus.subscribe('aboutBtnClicked', this.disableBtn.bind(this));
