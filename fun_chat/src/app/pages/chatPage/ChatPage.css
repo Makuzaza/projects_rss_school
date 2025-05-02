@@ -88,26 +88,6 @@
   padding: 10px 1%;
 }
 
-.empty-dialogue-message {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #888;
-  font-style: italic;
-  text-align: center;
-  width: 100%;
-  padding: 20px;
-  pointer-events: none;
-}
-
-.empty-dialogue-message::before {
-  content: "✉️";
-  display: block;
-  font-size: 2em;
-  margin-bottom: 10px;
-}
-
 .dialog-body_text {
   position: absolute;
   top: 50%;
@@ -168,5 +148,27 @@
   background-color: #f8f8f837;
   border-radius: 8px;
   max-width: 80%;
-  font-size: 17px;
+  font-size: 15px;
+}
+
+.message-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.5s ease;
+  opacity: 1;
+}
+
+.message-divider {
+  width: 50%;
+  height: 1px;
+  background-color: var(--warning-color);
+  margin: 10px 0 25px 0;
+  font-size: 15px;
 }

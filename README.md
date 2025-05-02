@@ -1,8 +1,6 @@
 ## Fun Chat
 
-An interactive chat application developed as part of the RSSchool JS/FE course. Fun Chat provides users with a platform to engage in real-time communication through text messages. Key Features: Real-time Messaging: Engage in real-time conversations with other users. User Authentication: Securely log in to access the chat platform. Responsive Design: Enjoy a seamless experience across various devices and screen sizes. Experience the joy of real-time communication and connect with friends and colleagues in Fun Chat.
-
-**Task Objectives**
+An interactive chat application developed as part of the RSSchool JS/FE course. Fun Chat provides users with a platform to engage in real-time communication through text messages. 
 
 ## Key Features:
 
@@ -31,5 +29,3 @@ To use the chat server application follow these steps:
 - create the .env file and specify the port settings and server event log settings in it
 - start the local server using npm run start
 - The server runs on port 4000 and listens for messages from client applications.
-
-In the .env.example file, you can find an example of basic parameter settings for the .env file.

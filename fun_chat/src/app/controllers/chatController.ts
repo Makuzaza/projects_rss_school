@@ -38,6 +38,7 @@ export class ChatController {
   public chatPage: ChatPage;
   private messageMap: MessageDataMap;
   private messageToEditId = '';
+  private isUserScroll: boolean = false;
 
   constructor(webSocketAPI: WebSocketAPI, chatPage: ChatPage) {
     this.webSocketAPI = webSocketAPI;
@@ -121,7 +122,78 @@ export class ChatController {
   }
 
   private messageReadHandler(data: MessageReadStatusChange): void {
-    // console.log(data);
+    // console.log('Message marked as read:', data.payload.message.id);
+    
+    // Update the UI status if needed
+    const messageId = data.payload.message.id;
+    const messageFooterStatus = document.getElementById(`messageFooterStatus_${messageId}`);
+    if (messageFooterStatus) {
+      messageFooterStatus.textContent = 'read';
+    }
+  }
+
+  private removeUnreadMessageDivider(): void {
+    const divider = document.querySelector('.message-divider');
+    if (divider) {
+      divider.remove();
+    }
+  }
+
+  private setupUnreadDividerRemovalListeners(): void {
+    const dialogBody = document.getElementById('dialogBody');
+    const sendButton = document.getElementById('dialogFormButton');
+    this.isUserScroll = false;
+    
+    if (dialogBody) {
+      dialogBody.addEventListener('scroll', () => {
+        console.log('isUserScroll:', this.isUserScroll);
+        if (this.isUserScroll) {
+          this.removeUnreadMessageDivider();
+        } 
+      });
+      
+      // Remove divider on click inside message history area
+      dialogBody.addEventListener('click', () => {
+        this.removeUnreadMessageDivider();
+      });
+    }
+    
+    if (sendButton) {
+      // Remove divider when sending a message
+      sendButton.addEventListener('click', () => {
+        this.removeUnreadMessageDivider();
+      });
+    }
+  }
+
+  private showUnreadMessageNotification(sender: string): void {
+    let notificationEl = document.getElementById('message-notification');
+    
+    if (!notificationEl) {
+      notificationEl = document.createElement('div');
+      notificationEl.id = 'message-notification';
+      notificationEl.className = 'message-notification';
+      document.body.appendChild(notificationEl);
+    }
+    
+    // Update notification content
+    notificationEl.textContent = `New message from ${sender}`;
+    
+    // Hide notification after some time
+    setTimeout(() => {
+      if (notificationEl) {
+        notificationEl.style.opacity = '0';
+        setTimeout(() => {
+          if (notificationEl && notificationEl.parentNode) {
+            notificationEl.parentNode.removeChild(notificationEl);
+          }
+        }, 500);
+      }
+    }, 4000); 
+  }
+
+  private markMessageAsRead(messageId: string): void {
+    this.webSocketAPI.MessageReadStatusChange(messageId);
   }
 
   private deleteMsgHandler(msgId: string): void {
@@ -175,9 +247,15 @@ export class ChatController {
       this.chatModel.currentUser?.login === options.to &&
       dialogueOpenWith === options.from
     ) {
+
+      this.showUnreadMessageNotification(options.from);
+
       messageBlock.setMessageData(options, 'recipient');
       dialogBody.prepend(messageBlock.element);
+      this.isUserScroll = false; 
       scrollToNewMessage(dialogBody, messageBlock.element);
+
+      this.markMessageAsRead(options.id);
     }
 
     if (dialogBody && this.chatModel.currentUser?.login === options.from && dialogueOpenWith === options.to) {
@@ -189,12 +267,14 @@ export class ChatController {
 
       messageBlock.setMessageData(options, 'current');
       dialogBody.prepend(messageBlock.element);
+      this.isUserScroll = false;
       scrollToNewMessage(dialogBody, messageBlock.element);
     }
   }
 
   private messageSentHandler(message: string): void {
     this.webSocketAPI.sendMessage(message, this.chatModel.recipient);
+    this.removeUnreadMessageDivider();
   }
 
   private historyFetchedHandler(data: FetchHistoryResponse): void {
@@ -204,6 +284,7 @@ export class ChatController {
     if (dialogBody) {
       dialogBody.innerHTML = '';
     }
+    this.isUserScroll = false;
     if (length) {
       this.chatModel.mode = 'dialogStarted';
       const el = document.getElementById('dialogBodyText');
@@ -211,6 +292,9 @@ export class ChatController {
       if (el) {
         this.chatPage.renderDialogBodyText(this.chatModel.mode, el);
       }
+
+      let hasAddedDivider = false;
+      const unreadMessagesToMark: string[] = [];
 
       messages.forEach(item => {
         const { id } = item;
@@ -225,11 +309,45 @@ export class ChatController {
         messageBlock.setMessageData(options, attributeValue);
 
         if (dialogBody) {
-          dialogBody.prepend(messageBlock.element);
+          this.isUserScroll = false;
+          // console.log('isReaded:', status.isReaded);
+          if (!status.isReaded && !hasAddedDivider && attributeValue === 'recipient') {
+            const unreadMessages = messages.filter(item => 
+              item.status.isReaded === false && 
+              item.from !== this.chatModel.currentUser?.login
+            );
 
+            if (unreadMessages.length > 0) {
+              const divider = document.createElement('div');
+              divider.className = 'message-divider';
+              divider.innerHTML = '<span>Unread messages</span>';
+              dialogBody.prepend(divider);
+              hasAddedDivider = true; 
+            }
+
+            const currentTime = new Date().getTime();
+            const messageTime = datetime;
+            if (attributeValue === 'recipient' && (currentTime - messageTime > 3000)) { 
+              unreadMessagesToMark.push(id);
+            }
+          }
+          dialogBody.prepend(messageBlock.element);
           dialogBody.scrollTop = dialogBody.scrollHeight;
         }
       });
+
+      // if (unreadMessagesToMark.length > 0) {
+      //   setTimeout(() => {
+      //     unreadMessagesToMark.forEach(id => {
+      //       this.markMessageAsRead(id);
+      //     });
+      //   }, 2000);
+      // }
+
+      unreadMessagesToMark.forEach(id => {
+        this.markMessageAsRead(id);
+      });
+      this.setupUnreadDividerRemovalListeners();
     } else {
       this.absenceMesageHistory(this.chatModel.recipient);
     }
@@ -248,12 +366,13 @@ export class ChatController {
   
     const beginningMessage = document.createElement('div');
     beginningMessage.className = 'beginning-message';
-    beginningMessage.textContent = `Start conversation with ${user}`;
+    beginningMessage.textContent = `This is the beginning of the dialogue. Start conversation with ${user}`;
     beginningMessage.id = 'beginning-of-dialogue';
   
     if (dialogBody) {
       dialogBody.appendChild(beginningMessage);
       dialogBody.scrollTop = dialogBody.scrollHeight;
+      this.isUserScroll = false; 
     }
   
     const dialogInput = document.getElementById('dialogInput');
@@ -272,6 +391,7 @@ export class ChatController {
     const spanText = document.getElementById('dialogBodyText');
     const dialogInput = document.getElementById('dialogInput');
     this.chatModel.mode = 'userSelected';
+    this.isUserScroll = false;
     this.webSocketAPI.fetchMessageHistoryWithUser(id);
     if (spanText) {
       this.chatPage.renderDialogBodyText(this.chatModel.mode, spanText);
