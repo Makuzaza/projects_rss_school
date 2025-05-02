@@ -56,7 +56,7 @@ export class MessageComponent extends Component<'div'> {
 
     let statusString = '';
     if (attributeValue === 'current') {
-      statusString = status.isReaded === true ? 'read' : status.isDelivered === true ? 'delivered' : 'sent';
+      statusString = status.isDelivered === true ? 'delivered' : 'sent';
     }
     if (attributeValue === 'recipient') {
       statusString = status.isEdited === true ? 'edited' : '';
