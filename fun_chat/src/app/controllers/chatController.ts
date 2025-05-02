@@ -124,7 +124,6 @@ export class ChatController {
   private messageReadHandler(data: MessageReadStatusChange): void {
     // console.log('Message marked as read:', data.payload.message.id);
     
-    // Update the UI status if needed
     const messageId = data.payload.message.id;
     const messageFooterStatus = document.getElementById(`messageFooterStatus_${messageId}`);
     if (messageFooterStatus) {
@@ -152,14 +151,12 @@ export class ChatController {
         } 
       });
       
-      // Remove divider on click inside message history area
       dialogBody.addEventListener('click', () => {
         this.removeUnreadMessageDivider();
       });
     }
     
     if (sendButton) {
-      // Remove divider when sending a message
       sendButton.addEventListener('click', () => {
         this.removeUnreadMessageDivider();
       });
@@ -176,10 +173,8 @@ export class ChatController {
       document.body.appendChild(notificationEl);
     }
     
-    // Update notification content
     notificationEl.textContent = `New message from ${sender}`;
     
-    // Hide notification after some time
     setTimeout(() => {
       if (notificationEl) {
         notificationEl.style.opacity = '0';
@@ -316,6 +311,8 @@ export class ChatController {
               item.status.isReaded === false && 
               item.from !== this.chatModel.currentUser?.login
             );
+            const countUnreadMessages = unreadMessages.length;
+            console.log('countUnreadMessages:', countUnreadMessages);
 
             if (unreadMessages.length > 0) {
               const divider = document.createElement('div');
@@ -335,14 +332,6 @@ export class ChatController {
           dialogBody.scrollTop = dialogBody.scrollHeight;
         }
       });
-
-      // if (unreadMessagesToMark.length > 0) {
-      //   setTimeout(() => {
-      //     unreadMessagesToMark.forEach(id => {
-      //       this.markMessageAsRead(id);
-      //     });
-      //   }, 2000);
-      // }
 
       unreadMessagesToMark.forEach(id => {
         this.markMessageAsRead(id);

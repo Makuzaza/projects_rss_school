@@ -3,6 +3,7 @@ export interface User {
   password?: string;
   id?: string;
   isLogined?: boolean;
+  counter?: number;
 }
 
 export interface AuthMessage {

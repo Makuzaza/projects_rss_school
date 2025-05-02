@@ -89,11 +89,11 @@ export class ChatPage extends Component<'section'> {
     const name = document.getElementById(`userLineName_${id}`)?.innerText;
     const status = document.getElementById(`userLineStatus_${id}`)?.getAttribute('data-status');
     if (name && status) {
-      this.setUserInfoToGialogHeader(name, status);
+      this.setUserInfoToDialogHeader(name, status);
     }
   }
 
-  private setUserInfoToGialogHeader(name: string, status: string): void {
+  private setUserInfoToDialogHeader(name: string, status: string): void {
     this.dialogHeaderUserName.element.textContent = name;
     this.dialogHeaderUserStatus.element.textContent = status === 'true' ? 'Online' : 'Offline';
   }
